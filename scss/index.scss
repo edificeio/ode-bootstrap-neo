@@ -1,0 +1,21 @@
+@import "variables-ode";
+
+@import "node_modules/bootstrap/scss/functions";
+@import "node_modules/bootstrap/scss/variables";
+@import "node_modules/bootstrap/scss/mixins";
+@import "variables";
+@import "node_modules/ode-bootstrap/scss/index";
+@import "mixins-neo";
+@import "fonts";
+
+/*TODO define skins here if there is not variable changes. Else define in specific files (and release build should take all of them)*/
+
+#{$root-selector}{
+    @import "custom";
+    @import "breadcrumb";
+    @import "buttons";
+    @import "modal";
+    @import "notifications";
+}
+
+@import "retrocompat";

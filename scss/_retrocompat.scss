@@ -1,0 +1,63 @@
+.ode-theme-v1{
+    background: none;
+    *{
+        line-height: normal;
+    }
+    *,  *::before,  *::after{
+        box-sizing: initial;
+    }
+    .table {
+        width: initial;
+        margin: 0;
+    }
+    .row {
+        display: block;
+        margin: initial;
+        flex-wrap: initial;
+    }
+    a:not([href]) {
+        color: $blue;
+    }
+    img {
+        max-width: 100%;
+    }
+    legend{
+        font-size: initial;
+    }
+    .schedule .days .day {
+        width: calc(100% / 7);
+    }
+    button {
+        background-image: linear-gradient(#3889c1, #43B9E7);
+        color: #fff;
+        font-family: "KGJune";
+        text-transform: uppercase;
+        height: 40px;
+        display: inline-block;
+        box-sizing: border-box;
+        border-radius: 15px;
+        font-size: 22px;
+        border: none;
+        line-height: 40px;
+        padding-left: 12px !important;
+        padding-right: 12px !important;
+    }
+    .container {
+        max-width: initial;
+        width: initial;
+        min-width: initial;
+    }
+}
+
+#{$root-selector}{
+    .ode-theme-v1{
+        .container {
+            max-width: initial;
+            width: initial;
+            min-width: initial;
+        }
+        input[type=button], input[type=submit], a.button, button{
+            border-radius: 15px;
+        }
+    }
+}

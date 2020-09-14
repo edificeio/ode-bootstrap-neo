@@ -1,0 +1,44 @@
+{
+  "name": "${modname}",
+  "version": "${npmVersion}",
+  "description": "Neo theme by Open Digitale Education\"",
+  "scripts": {
+    "sass:watch": "node-sass --source-map true -w scss/index.scss docs/index.css",
+    "sass:build:debug": "node-sass --source-map true scss/index.scss docs/index.css",
+    "sass:build:release": "node-sass --output-style compressed skins/$SKIN/theme.scss skins/$SKIN/theme.css && cpr skins/$SKIN/ dist/skins/$SKIN/ -o",
+    "dev:dependencies": "cpr node_modules/ode-bootstrap/assets/ docs/ -o",
+    "dev:prepare": "npm run sass:build:debug && npm run dev:dependencies && cpr assets/ docs/ -o",
+    "dev:watch": "npm run dev:prepare && concurrently  \" npm run sass:watch \" \" npm run dev:serve  \" ",
+    "dev:serve": "live-server --open=docs/ --ignore=**/node_modules/**,**/dist/**,**/package.json,**/.git/**",
+    "release:clean": "rimraf dist",
+    "release:dependencies": "cpr node_modules/ode-bootstrap/assets/ dist/ -o",
+    "release:prepare": "npm run release:clean && npm run release:dependencies && cpr assets/ dist/ -o",
+    "release:build": "npm run release:prepare && SKIN=default npm run sass:build:release"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@code.web-education.net:ode/ode-bootstrap-neo.git"
+  },
+  "keywords": [
+    "NEO",
+    "ODE",
+    "bootstrap",
+    "theme"
+  ],
+  "author": "Open Digitale Education",
+  "license": "ISC",
+  "dependencies": {
+    "ode-bootstrap": "${odeBtVersion}"
+  },
+  "devDependencies": {
+    "concurrently": "^5.0.2",
+    "copyfiles": "^2.2.0",
+    "cpr": "^3.0.1",
+    "live-server": "^1.2.1",
+    "node-sass": "^4.13.1",
+    "rimraf": "^3.0.0"
+  },
+  "publishConfig": {
+    "registry": "https://maven.opendigitaleducation.com/nexus/repository/ode-npm/"
+  }
+}

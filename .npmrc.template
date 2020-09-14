@@ -1,0 +1,2 @@
+registry=https://maven.opendigitaleducation.com/nexus/repository/ode-npm-group/
+_auth=${npmToken}
