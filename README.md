@@ -9,6 +9,11 @@ Installer Git et lancer la commande suivante dans un terminal
 git clone git@code.web-education.net:ode/ode-bootstrap-neo.git
 ```
 
+Lancer la tâche init:
+```
+./build.sh init
+```
+
 ### Lancer le mode développeur
 
 Lancer la commande suivante:
