@@ -12,6 +12,24 @@
 
   <link href="https://fonts.googleapis.com/css?family=Fira+Sans&display=swap" rel="stylesheet">
   <title>ode-bootstrap-neo</title>
+  
+  <style>
+    .test-generic-icons i.test-generic-icons__example-one {
+        font-family: "generic-icons";
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        background-image: none;
+        font-weight: normal !important
+    }
+
+    .test-generic-icons i.test-generic-icons__example-one::before {
+        content: '\e929'
+    }
+    
+    .test-generic-icons i.test-generic-icons__example-two::before {
+        content: '\e83a'
+    }
+  </style>
 </head>
 
 <body>
@@ -530,6 +548,12 @@
     </div>
     <div class="col-12">
         <div style="display: block;" class="humane humane-original-success">L'activité a été enregistré avec succès</div>
+    </div>
+    
+    <div class="test-generic-icons m-4">
+      <h3>Test generic-icons</h3>
+      <div>Example 1: <i class="test-generic-icons__example-one"></i></div>
+      <div>Example 2: <i class="test-generic-icons__example-two"></i></div>
     </div>
   </div>
   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
