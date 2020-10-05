@@ -17,7 +17,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@code.web-education.net:ode/ode-bootstrap-neo.git"
+    "url": "git@github.com:opendigitaleducation/ode-bootstrap-neo.git"
   },
   "keywords": [
     "NEO",
@@ -37,8 +37,5 @@
     "live-server": "^1.2.1",
     "node-sass": "^4.13.1",
     "rimraf": "^3.0.0"
-  },
-  "publishConfig": {
-    "registry": "https://maven.opendigitaleducation.com/nexus/repository/ode-npm/"
   }
 }
