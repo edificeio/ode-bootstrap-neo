@@ -11,11 +11,18 @@
 /*TODO define skins here if there is not variable changes. Else define in specific files (and release build should take all of them)*/
 
 #{$root-selector}{
+    @import "applications";
     @import "custom";
     @import "breadcrumb";
     @import "buttons";
+    @import "display";
+    @import "forms";
+    @import "icons";
+    @import "lightbox";
     @import "modal";
+    @import "navbar";
     @import "notifications";
+    @import "transitions";
 }
 
 @import "retrocompat";

@@ -1,0 +1,21 @@
+.input-group {
+    .btn {
+    box-shadow: none!important;
+    }
+}
+
+.form-control::placeholder {
+    font-style: italic;
+}
+
+.input-searchbar {
+    .ic-search {
+        position: absolute;
+        left: 30px;
+        top: 7px;
+        color: $gray-500;
+    }
+    .ic-search + input {
+        padding-left: 40px;
+    }
+}

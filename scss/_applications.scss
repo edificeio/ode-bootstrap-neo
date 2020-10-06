@@ -1,0 +1,544 @@
+.application {
+    &__title {
+        color: $secondary;
+    }
+    &__item {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-content: center;
+        align-items: center;
+        background-color: transparent;
+        position: relative;
+        width: 150px;
+        height: 150px;
+        margin: 5px;
+        padding: 10px;
+        color: $text-color;
+        text-align: center;
+        border: 1px solid transparent;
+        border-radius: $border-radius-lg;
+        transition: background-color 0.25s ease-in-out, box-shadow 0.25s ease-in-out, border 0.35s ease-in-out;
+        > i {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 80px;
+            height: 80px;
+            font-size: 4rem;
+            color: $text-color;
+        }
+        span {
+            padding-top: 5px;
+            line-height: 1.1;
+        }
+        &.app-1d::before {
+            content: "1D";
+            position: absolute;
+            top: 0;
+            right: 25px;
+            background-color: $primary;
+            color: $white;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            font-size: 0.9rem;
+        }
+        &:hover {
+            background-color: rgba($white, 0.5);
+            border: 1px solid $gray-300;
+            box-shadow: 5px 5px 15px rgba($black, 0.1);
+            transition: background-color 0.25s ease-in-out, box-shadow 0.25s ease-in-out, border 0.35s ease-in-out;
+            color: $primary;
+            i {
+                transition: color 0.1s ease-in-out;
+                color: $primary;
+            }
+            .application__item--add,
+            .application__item--remove {
+                background-color: $primary;
+                i {
+                    color: $white;
+                }
+            }
+        }
+        &:active {
+            background-color: rgba($white, 0.8);
+            border-color: $accent;
+            box-shadow: 2px 2px 10px rgba($black, 0.1) inset;
+            transition: background-color 0.25s ease-in-out, box-shadow 0.35s ease-in-out, border 0.15s ease-in-out;
+        }
+        img {
+            max-height: 100px;
+            max-width: 100px;
+            padding: 10px;
+        }
+        &.blue-background-class {
+            background-color: rgba($secondary, 0.15);
+        }
+        &--add,
+        &--remove {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-color: $secondary;
+            box-shadow: 5px 5px 10px rgba(0,0,0,0.15);
+            i {
+                color: $white;
+                font-size: 1rem;
+                line-height: 30px;
+            }
+        }
+        &.no-hover {
+            background-color: inherit;
+            border-color: transparent;
+            box-shadow: inherit;
+        }
+        .opacity-50 {
+            opacity: 0.5;
+        }
+    }
+}
+
+.applications {
+    &__search {
+        @extend .mt-1;
+        input[type="search"] {
+            box-shadow: 3px 3px 15px rgba(0,0,0,0.05); // A variabiliser
+        }
+    }
+    &__list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    &__favorite {
+        border: 1px solid $gray-300;
+        border-radius: $border-radius-lg;
+        background-color: rgba($white, .75);
+        box-shadow: 3px 3px 15px rgba(0,0,0,0.05);
+        padding: 15px;
+        @extend .mt-4;
+        h2 {
+            font-size: 1.2rem;
+        }
+    }
+    &__list,
+    &__connector {
+        h2 {
+            @extend .mb-3;
+            flex-basis: 100%;
+            font-size: 1.2rem;
+            span {
+                padding-right: 10px;
+                background-color: $gray-100;
+            }
+            &::after {
+                display: block;
+                content: "";
+                border-top: 1px solid $gray-300;
+                margin-top: -10px;
+            }
+        }
+    }
+}
+
+@include media-breakpoint-down(sm) {
+    .application {
+        &__item {
+            width: 90px;
+            height: 110px;
+            margin: 5px;
+            > i {
+                font-size: 3rem;
+                width: 60px;
+                height: 60px;
+            }
+            span {
+                font-size: 0.8rem;
+            }
+            img {
+                max-height: 80px;
+                max-width: 80px;
+            }
+        }
+    }
+    .applications {
+        &__favorite {
+            padding: 10px;
+        }
+    }
+}
+
+// APPLICATIONS ICONS
+.application {
+    font-family: "generic-icons";
+    font-style: normal;
+
+    // ICON COLOR : RED
+    &.competences,
+    &.competences-large, 
+
+    &.notes,
+    &.notes-large,
+
+    &.pages,
+    &.pages-large,
+
+    &.parametrage,
+    &.parametrage-large,
+
+    &.rack,
+    &.rack-large,
+
+    &.workspace,
+    &.workspace-large {
+        color: $red;
+    }
+
+    // ICON COLOR : ORANGE : FORBIDDEN (HOVER COLOR)
+
+    // ICON COLOR : YELLOW
+    &.admin,
+    &.admin-large,
+
+    &.archive,
+    &.archive-large,
+    
+    &.calendar,
+    &.calendar-large,
+
+    &.conversation,
+    &.conversation-large,
+
+    &.library,
+    &.library-large,
+    
+    &.settings-class,
+    &.settings-class-large,
+
+    &.timelinegenerator,
+    &.timelinegenerator-large {
+        color: $yellow;
+    }
+
+    // ICON COLOR : GREEN
+    &.cahier-de-texte,
+    &.cahier-de-texte-large,
+
+    &.cahier-textes,
+    &.cahier-textes-large,
+
+    &.cns,
+    &.cns-large,
+
+    &.collaborative-wall,
+    &.collaborative-wall-large,
+
+    &.schoolbook,
+    &.schoolbook-large,
+    
+    &.scrap-book,
+    &.scrap-book-large,
+
+    &.support,
+    &.support-large,
+
+    &.userbook,
+    &.userbook-large {
+        color: $teal;
+    }
+
+    // ICON COLOR : CYAN
+   &.actualites,
+   &.actualites-large,
+   
+   &.forum,
+   &.forum-large,
+   
+   &.mindmap,
+   &.mindmap-large,
+
+   &.pad,
+   &.pad-large,
+
+   &.poll,
+   &.poll-large,
+   
+   &.searchengine,
+   &.searchengine-large,
+
+   &.video,
+   &.video-large,
+
+   &.visioconf,
+   &.visioconf-large,
+   &.Web-conference,
+   &.Web-conference-large,
+
+   &.website,
+   &.website-large {
+        color: $cyan;
+    }
+
+    // ICON COLOR : INDIGO
+    &.blog,
+    &.blog-large,
+    
+    &.sacoche,
+    &.sacoche-large {
+        color: $indigo;
+    }
+
+    // ICON COLOR : PURPLE
+    &.community,
+    &.community-large,
+    
+    &.exercizer,
+    &.exercizer-large,
+
+    &.kne,
+    &.kne-large,
+
+    &.paths,
+    &.paths-large,
+    
+    &.sharebigfiles,
+    &.sharebigfiles-large,
+    
+    &.stats,
+    &.stats-large,
+    &.statistics,
+    &.statistics-large,
+    
+    &.wiki,
+    &.wiki-large {
+        color: $purple;
+    }
+
+    // ICON COLOR : PINK
+    &.rbs,
+    &.rbs-large {
+        color: $pink;
+    }
+
+
+    // Définit l'image à utiliser pour l'icone
+    &.competences,
+    &.competences-large {
+        &::before {content:"\e927"}
+    }
+    &.cahier-textes,
+    &.cahier-textes-large {
+        &::before {content: "\e86f"}
+    }
+    &.calendar,
+    &.calendar-large {
+        &::before {content: '\e834'}
+    }
+    &.collaborative-wall,
+    &.collaborative-wall-large {
+        &::before {content: "\e800"}
+    }
+    &.community,
+    &.community-large {
+        &::before {content: '\e814'}
+    }
+    &.forum,
+    &.forum-large {
+        &::before {content: '\e81e'}
+    }
+    &.pages,
+    &.pages-large {
+        &::before {content: "\e876"}
+    }
+    &.poll,
+    &.poll-large {
+        &::before {content: '\e832'}
+    }
+    &.rack,
+    &.rack-large {
+        &::before {content:'\e80d'}
+    }
+    &.rbs,
+    &.rbs-large {
+        &::before {content: '\e80e'}
+    }
+    &.searchengine,
+    &.searchengine-large {
+        &::before {content: '\e8d0'}
+    }
+    &.sharebigfiles,
+    &.sharebigfiles-large {
+        &::before {content: "\e8cb"}
+    }
+    &.schoolbook,
+    &.schoolbook-large {
+        &::before {content:'\e91e'}
+    }
+    &.archive,
+    &.archive-large {
+        &::before {content:'\e81d'}
+    }
+    &.admin,
+    &.admin-large {
+        &::before {content:'\e81a'}
+    }
+    &.cahier-de-texte,
+    &.cahier-de-texte-large {
+        &::before {content:'\e910'}
+    }
+    &.wiki,
+    &.wiki-large {
+        &::before {content:'\e813'}
+    }
+    &.cns,
+    &.cns-large {
+        &::before {content:'\e88a'}
+    }
+    &.conversation,
+    &.conversation-large {
+        &::before {content:'\e804'}
+    }
+    &.paths,
+    &.paths-large {
+        &::before {content:'\e94d'}
+    }
+    &.notebook,
+    &.notebook-large {
+        &::before {content:'\e8d4'}
+    }
+    &.scrap-book,
+    &.scrap-book-large {
+        &::before {content:'\e8d4'}
+    }
+    &.blog,
+    &.blog-large {
+        &::before {content:'\e809'}
+    }
+    &.account,
+    &.account-large {
+        &::before {content:'\e905'}
+    }
+    &.support,
+    &.support-large {
+        &::before {content:'\e835'}
+    }
+    &.workspace,
+    &.workspace-large {
+        &::before {content:'\e81b'}
+    }
+    &.admin-portal,
+    &.admin-portal-large {
+        &::before {content:'\e908'}
+    }
+    &.stats,
+    &.stats-large {
+        &::before {content:'\e909'}
+    }
+    &.userbook,
+    &.userbook-large {
+        &::before {content:'\e811'}
+    }
+    &.mindmap,
+    &.mindmap-large {
+        &::before {content:'\e859'}
+    }
+    &.timelinegenerator,
+    &.timelinegenerator-large {
+        &::before {content:'\e819'}
+    }
+    &.actualites,
+    &.actualites-large {
+        &::before {content:'\e85b'}
+    }
+    &.pad,
+    &.pad-large {
+        &::before {content:'\e829'}
+    }
+    &.settings-class,
+    &.settings-class-large {
+        &::before {content: '\e942'}
+    }
+    &.library,
+    &.library-large {
+        &::before {content: '\e94c'}
+    }
+    &.visioconf,
+    &.visioconf-large,
+    &.Web-conference,
+    &.Web-conference-large {
+        &::before {content: "\e957"}
+    }
+    &.notes,
+    &.notes-large {
+        &::before {content: '\e832'}
+    }
+    &.attendance,
+    &.attendance-large {
+        &::before {content: '\e80b'}
+    }
+    &.exercizer,
+    &.exercizer-large {
+        &::before {content: '\e833'}
+    }
+    &.calendar,
+    &.calendar-large {
+        &::before {content: '\e834'}
+    }
+    &.collaborative-wall,
+    &.collaborative-wall-large {
+        &::before {content: '\e800'}
+    }
+    &.statistics,
+    &.statistics-large {
+        &::before {content: '\e810'}
+    }
+    &.polls,
+    &.poll-large {
+        &::before {content: '\e832'}
+    }
+    &.community,
+    &.community-large {
+        &::before {content: '\e814'}
+    }
+    &.forum,
+    &.forum-large {
+        &::before {content: '\e81e'}
+    }
+    &.pages,
+    &.pages-large {
+        &::before {content: '\e876'}
+    }
+    &.rbs,
+    &.rbs-large {
+        &::before {content: '\e80e'}
+    }
+    &.sharebigfiles,
+    &.sharebigfiles-large {
+        &::before {content: '\e8cb'}
+    }
+    &.website,
+    &.website-large {
+        &::before {content: '\e94a'}
+    }
+    &.parametrage,
+    &.parametrage-large {
+       &::before {content: '\e92f'}
+    }
+    &.video,
+    &.video-large {
+        &::before {content: '\e872'}
+    }
+    &.kne,
+    &.kne-large {
+        &::before {content: '\e81f'}
+    }
+    &.sacoche,
+    &.sacoche-large {
+        &::before {content: '\e899'}
+    }
+}

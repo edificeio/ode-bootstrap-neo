@@ -1,0 +1,34 @@
+.btn {
+    box-shadow: $btn-box-shadow;
+  }
+  .btn-link,
+  .btn[class*=btn-outline-] {
+    box-shadow: none;
+  }
+
+  .btn-outline-orange:hover,
+  .btn-outline-orange.active {
+    color: $white!important;
+  }
+  
+  .btn-primary {
+    color: $white;
+    &.disabled,
+    &:disabled {
+      background-color: $gray-600;
+      border-color: $gray-600;
+      color: rgba($white, .8);
+      opacity: .8;
+    }
+  }
+  .btn-secondary {
+    background-color: $gray-200;
+    border-color: $gray-200;
+    color: $accent;
+    &:hover {
+      background-color: $primary;
+      border-color: $primary;
+      color: $white;
+    }
+  }
+  

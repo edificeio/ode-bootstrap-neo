@@ -1,0 +1,27 @@
+// Roboto regular
+@font-face {
+    font-family: "Roboto";
+    src: getUrl("fonts/roboto/Roboto-Regular.ttf");
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: "Roboto";
+    src: getUrl("fonts/roboto/Roboto-Italic.ttf");
+    font-weight: normal;
+    font-style: italic;
+}
+
+// Roboto bold
+@font-face {
+    font-family: "Roboto";
+    src: getUrl("fonts/roboto/Roboto-Bold.ttf");
+    font-weight: bold;
+    font-style: normal;
+}
+@font-face {
+    font-family: "Roboto";
+    src: getUrl("fonts/roboto/Roboto-BoldItalic.ttf");
+    font-weight: bold;
+    font-style: italic;
+}
