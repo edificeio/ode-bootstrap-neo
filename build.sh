@@ -50,6 +50,9 @@ build () {
     tmp=`echo $dir | sed 's/.\/skins\///'`
     docker-compose run --rm -u "$USER_UID:$GROUP_GID" node sh -c "SKIN=$tmp npm run sass:build:release"
   done
+  cp node_modules/ode-bootstrap/version.txt dist/version.txt
+  VERSION=`grep "version="  gradle.properties| sed 's/version=//g'`
+  echo "ode-bootstrap-neo=$VERSION `date +'%d/%m/%Y %H:%M:%S'`" >> dist/version.txt
 }
 
 watch () {
