@@ -161,11 +161,16 @@
                 max-height: 80px;
                 max-width: 80px;
             }
+            &--add,
+            &--remove {
+                top: 10px;
+                right: 10px;
+            }
         }
-    }
-    .applications {
-        &__favorite {
-            padding: 10px;
+        .applications {
+            &__favorite {
+                padding: 10px;
+            }
         }
     }
 }
