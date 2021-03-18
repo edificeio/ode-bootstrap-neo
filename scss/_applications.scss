@@ -6,14 +6,13 @@
         display: flex;
         flex-direction: column;
         justify-content: center;
-        align-content: center;
         align-items: center;
         background-color: transparent;
         position: relative;
         width: 150px;
-        height: 150px;
+        height: 140px;
         margin: 5px;
-        padding: 10px;
+        padding: 5px;
         color: $text-color;
         text-align: center;
         border: 1px solid transparent;
@@ -25,12 +24,16 @@
             align-items: center;
             width: 80px;
             height: 80px;
-            font-size: 4rem;
+            font-size: 3.5rem;
             color: $text-color;
+            flex: 0;
         }
         span {
             padding-top: 5px;
             line-height: 1.1;
+            display: flex;
+            flex: 1;
+            align-items: center;
         }
         &.app-1d::before {
             content: "1D";
@@ -118,7 +121,7 @@
         background-color: rgba($white, .75);
         box-shadow: 3px 3px 15px rgba(0,0,0,0.05);
         padding: 10px;
-        @extend .mt-4;
+        @extend .mt-3;
         h2 {
             font-size: 1.2rem;
         }
