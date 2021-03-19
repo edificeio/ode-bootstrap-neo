@@ -49,18 +49,12 @@
         }
         &:hover {
             background-color: rgba($white, 0.5);
+            text-decoration: none;
             border: 1px solid $gray-300;
             box-shadow: 5px 5px 15px rgba($black, 0.1);
             transition: background-color 0.25s ease-in-out, box-shadow 0.25s ease-in-out, border 0.35s ease-in-out;
             i {
                 transition: color 0.1s ease-in-out;
-            }
-            .application__item--add,
-            .application__item--remove {
-                background-color: $primary;
-                i {
-                    color: $white;
-                }
             }
         }
         &:active {
@@ -79,17 +73,21 @@
         &--add,
         &--remove {
             position: absolute;
-            top: 20px;
+            top: 10px;
             right: 20px;
-            width: 30px;
-            height: 30px;
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
             background-color: $secondary;
             box-shadow: 5px 5px 10px rgba(0,0,0,0.15);
+            border: 1px solid transparent;
             i {
                 color: $white;
                 font-size: 1rem;
                 line-height: 30px;
+            }
+            &:hover {
+                background-color: $primary;    
             }
         }
         &.no-hover {
