@@ -67,9 +67,6 @@
             max-width: 100px;
             padding: 10px;
         }
-        &.blue-background-class {
-            background-color: rgba($secondary, 0.15);
-        }
         &--add,
         &--remove {
             position: absolute;
@@ -544,4 +541,9 @@
     &.sacoche-large {
         &::before {content: '\e899'}
     }
+}
+
+// shadow class for D&D Sortable.js library
+.blue-background-class {
+    background-color: rgba($secondary, 0.15);
 }
