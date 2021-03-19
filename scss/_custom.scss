@@ -13,6 +13,10 @@ main.main {
     }
 }
 
+.pe-none {
+    pointer-events: none;
+}
+
 // TODO : A déporter plus tard - contient tout le css du composant popover
 popover {
     position: relative;
