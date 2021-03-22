@@ -154,6 +154,8 @@ help {
         margin-left: 25%;
         h2 {
             width: 100%;
+            margin-bottom: 20px;
+            color: $secondary;
         }
     }
 }
@@ -191,14 +193,19 @@ help {
             width: 40px;
             height: 40px;
             line-height: 40px;
+            border-radius: $border-radius;
             text-align: center;
             color: white;
             position: absolute;
             cursor: pointer;
             padding: 0;
-            .burger-icon::before {
-                font-size: 18px;
-                line-height: inherit;
+            border: none;
+            .burger-icon {
+                font-family: "generic-icons";
+                font-style: normal;
+                &::before {
+                    content: "\e956";
+                }
             }
         }
         .burger-menu.active #TOC ul {
