@@ -142,6 +142,9 @@ help {
                 margin-inline-end: 0px;
                 a {
                     color: $secondary;
+                    &:hover {
+                        color: $primary;
+                    }
                 }
             }
         }
