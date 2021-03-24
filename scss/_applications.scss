@@ -53,6 +53,7 @@
             border: 1px solid $gray-300;
             box-shadow: 5px 5px 15px rgba($black, 0.1);
             transition: background-color 0.25s ease-in-out, box-shadow 0.25s ease-in-out, border 0.35s ease-in-out;
+            color: inherit;
             i {
                 transition: color 0.1s ease-in-out;
             }
