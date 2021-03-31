@@ -194,6 +194,9 @@
     &.rack,
     &.rack-large,
 
+    &.universalis,
+    &.universalis-large,
+
     &.workspace,
     &.workspace-large {
         color: $red;
@@ -213,6 +216,9 @@
 
     &.conversation,
     &.conversation-large,
+
+    &.le-site-tv,
+    &.le-site-tv-large,
 
     &.library,
     &.library-large,
@@ -287,6 +293,9 @@
     // ICON COLOR : INDIGO
     &.blog,
     &.blog-large,
+
+    &.maxicours,
+    &.maxicours-large,
     
     &.sacoche,
     &.sacoche-large {
@@ -305,6 +314,9 @@
 
     &.paths,
     &.paths-large,
+
+    &.pronote,
+    &.pronote-large,
     
     &.sharebigfiles,
     &.sharebigfiles-large,
@@ -320,6 +332,12 @@
     }
 
     // ICON COLOR : PINK
+    &.esidoc,
+    &.esidoc-large,
+    
+    &.madmagz,
+    &.madmagz-large,
+
     &.rbs,
     &.rbs-large {
         color: $pink;
@@ -540,6 +558,30 @@
     &.sacoche,
     &.sacoche-large {
         &::before {content: '\e899'}
+    }
+    &.pronote,
+    &.pronote-large {
+        &::before {content: '\e82a'}
+    }
+    &.maxicours,
+    &.maxicours-large {
+        &::before {content: '\e825'}
+    }
+    &.madmagz,
+    &.madmagz-large {
+        &::before {content: '\e89d'}
+    }
+    &.universalis,
+    &.universalis-large {
+        &::before {content: '\e831'}
+    }
+    &.le-site-tv,
+    &.le-site-tv-large {
+        &::before {content: '\e87a'}
+    }
+    &.esidoc,
+    &.esidoc-large {
+        &::before {content: '\e826'}
     }
 }
 
