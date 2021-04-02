@@ -7,6 +7,7 @@ header.navbar.navbar-dark {
     right: 0;
     z-index: 1000000;
     box-shadow: 0 2px 5px $shadow-light;
+    background: linear-gradient(to bottom right, #4bafd5, #2a9cc8)!important; // QUICKFIX, a unifier lors de l'explorateur
     a {
         display: block;
         color: $white;
