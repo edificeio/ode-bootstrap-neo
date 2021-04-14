@@ -10997,7 +10997,7 @@ readers do not read off random characters that represent icons */
     margin-left: 0.5rem !important; }
   .ode-bootstrap-neo .m-3 {
     margin: 1rem !important; }
-  .ode-bootstrap-neo .mt-3,
+  .ode-bootstrap-neo .mt-3, .ode-bootstrap-neo .applications__favorite,
   .ode-bootstrap-neo .my-3 {
     margin-top: 1rem !important; }
   .ode-bootstrap-neo .mr-3,
@@ -11011,7 +11011,7 @@ readers do not read off random characters that represent icons */
     margin-left: 1rem !important; }
   .ode-bootstrap-neo .m-4 {
     margin: 1.5rem !important; }
-  .ode-bootstrap-neo .mt-4, .ode-bootstrap-neo .applications__favorite,
+  .ode-bootstrap-neo .mt-4,
   .ode-bootstrap-neo .my-4 {
     margin-top: 1.5rem !important; }
   .ode-bootstrap-neo .mr-4,
@@ -12589,14 +12589,13 @@ readers do not read off random characters that represent icons */
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-content: center;
   align-items: center;
   background-color: transparent;
   position: relative;
   width: 150px;
-  height: 150px;
+  height: 140px;
   margin: 5px;
-  padding: 10px;
+  padding: 5px;
   color: #3f454f;
   text-align: center;
   border: 1px solid transparent;
@@ -12608,11 +12607,14 @@ readers do not read off random characters that represent icons */
     align-items: center;
     width: 80px;
     height: 80px;
-    font-size: 4rem;
+    font-size: 3.5rem;
     color: #3f454f; }
   .ode-bootstrap-neo .application__item span {
     padding-top: 5px;
-    line-height: 1.1; }
+    line-height: 1.1;
+    display: flex;
+    flex: 1;
+    align-items: center; }
   .ode-bootstrap-neo .application__item.app-1d::before {
     content: "1D";
     position: absolute;
@@ -12626,43 +12628,38 @@ readers do not read off random characters that represent icons */
     font-size: 0.9rem; }
   .ode-bootstrap-neo .application__item:hover {
     background-color: rgba(255, 255, 255, 0.5);
+    text-decoration: none;
     border: 1px solid #d6d9e0;
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1);
     transition: background-color 0.25s ease-in-out, box-shadow 0.25s ease-in-out, border 0.35s ease-in-out;
-    color: #FF8500; }
+    color: inherit; }
     .ode-bootstrap-neo .application__item:hover i {
-      transition: color 0.1s ease-in-out;
-      color: #FF8500; }
-    .ode-bootstrap-neo .application__item:hover .application__item--add,
-    .ode-bootstrap-neo .application__item:hover .application__item--remove {
-      background-color: #FF8500; }
-      .ode-bootstrap-neo .application__item:hover .application__item--add i,
-      .ode-bootstrap-neo .application__item:hover .application__item--remove i {
-        color: #fff; }
+      transition: color 0.1s ease-in-out; }
   .ode-bootstrap-neo .application__item:active {
     background-color: rgba(255, 255, 255, 0.8);
-    border-color: #FF8500;
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1) inset;
     transition: background-color 0.25s ease-in-out, box-shadow 0.35s ease-in-out, border 0.15s ease-in-out; }
   .ode-bootstrap-neo .application__item img {
     max-height: 100px;
     max-width: 100px;
     padding: 10px; }
-  .ode-bootstrap-neo .application__item.blue-background-class {
-    background-color: rgba(75, 175, 213, 0.15); }
   .ode-bootstrap-neo .application__item--add, .ode-bootstrap-neo .application__item--remove {
     position: absolute;
-    top: 20px;
+    top: 10px;
     right: 20px;
-    width: 30px;
-    height: 30px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
     background-color: #4bafd5;
-    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.15); }
+    text-align: center;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.15);
+    border: 1px solid transparent; }
     .ode-bootstrap-neo .application__item--add i, .ode-bootstrap-neo .application__item--remove i {
       color: #fff;
       font-size: 1rem;
       line-height: 30px; }
+    .ode-bootstrap-neo .application__item--add:hover, .ode-bootstrap-neo .application__item--remove:hover {
+      background-color: #FF8500; }
   .ode-bootstrap-neo .application__item.no-hover {
     background-color: inherit;
     border-color: transparent;
@@ -12683,7 +12680,7 @@ readers do not read off random characters that represent icons */
   border-radius: 10px;
   background-color: rgba(255, 255, 255, 0.75);
   box-shadow: 3px 3px 15px rgba(0, 0, 0, 0.05);
-  padding: 15px; }
+  padding: 10px; }
   .ode-bootstrap-neo .applications__favorite h2 {
     font-size: 1.2rem; }
 
@@ -12713,25 +12710,28 @@ readers do not read off random characters that represent icons */
     .ode-bootstrap-neo .application__item img {
       max-height: 80px;
       max-width: 80px; }
-  .ode-bootstrap-neo .applications__favorite {
+    .ode-bootstrap-neo .application__item--add, .ode-bootstrap-neo .application__item--remove {
+      top: 10px;
+      right: 10px; }
+  .ode-bootstrap-neo .application .applications__favorite {
     padding: 10px; } }
 
 .ode-bootstrap-neo .application {
   font-family: "generic-icons";
   font-style: normal; }
-  .ode-bootstrap-neo .application.competences, .ode-bootstrap-neo .application.competences-large, .ode-bootstrap-neo .application.notes, .ode-bootstrap-neo .application.notes-large, .ode-bootstrap-neo .application.pages, .ode-bootstrap-neo .application.pages-large, .ode-bootstrap-neo .application.parametrage, .ode-bootstrap-neo .application.parametrage-large, .ode-bootstrap-neo .application.rack, .ode-bootstrap-neo .application.rack-large, .ode-bootstrap-neo .application.workspace, .ode-bootstrap-neo .application.workspace-large {
+  .ode-bootstrap-neo .application.competences, .ode-bootstrap-neo .application.competences-large, .ode-bootstrap-neo .application.notes, .ode-bootstrap-neo .application.notes-large, .ode-bootstrap-neo .application.pages, .ode-bootstrap-neo .application.pages-large, .ode-bootstrap-neo .application.parametrage, .ode-bootstrap-neo .application.parametrage-large, .ode-bootstrap-neo .application.rack, .ode-bootstrap-neo .application.rack-large, .ode-bootstrap-neo .application.universalis, .ode-bootstrap-neo .application.universalis-large, .ode-bootstrap-neo .application.workspace, .ode-bootstrap-neo .application.workspace-large {
     color: #e13a3a; }
-  .ode-bootstrap-neo .application.admin, .ode-bootstrap-neo .application.admin-large, .ode-bootstrap-neo .application.archive, .ode-bootstrap-neo .application.archive-large, .ode-bootstrap-neo .application.calendar, .ode-bootstrap-neo .application.calendar-large, .ode-bootstrap-neo .application.conversation, .ode-bootstrap-neo .application.conversation-large, .ode-bootstrap-neo .application.library, .ode-bootstrap-neo .application.library-large, .ode-bootstrap-neo .application.settings-class, .ode-bootstrap-neo .application.settings-class-large, .ode-bootstrap-neo .application.timelinegenerator, .ode-bootstrap-neo .application.timelinegenerator-large {
+  .ode-bootstrap-neo .application.admin, .ode-bootstrap-neo .application.admin-large, .ode-bootstrap-neo .application.archive, .ode-bootstrap-neo .application.archive-large, .ode-bootstrap-neo .application.calendar, .ode-bootstrap-neo .application.calendar-large, .ode-bootstrap-neo .application.conversation, .ode-bootstrap-neo .application.conversation-large, .ode-bootstrap-neo .application.le-site-tv, .ode-bootstrap-neo .application.le-site-tv-large, .ode-bootstrap-neo .application.library, .ode-bootstrap-neo .application.library-large, .ode-bootstrap-neo .application.settings-class, .ode-bootstrap-neo .application.settings-class-large, .ode-bootstrap-neo .application.timelinegenerator, .ode-bootstrap-neo .application.timelinegenerator-large {
     color: #ecbe30; }
   .ode-bootstrap-neo .application.cahier-de-texte, .ode-bootstrap-neo .application.cahier-de-texte-large, .ode-bootstrap-neo .application.cahier-textes, .ode-bootstrap-neo .application.cahier-textes-large, .ode-bootstrap-neo .application.cns, .ode-bootstrap-neo .application.cns-large, .ode-bootstrap-neo .application.collaborative-wall, .ode-bootstrap-neo .application.collaborative-wall-large, .ode-bootstrap-neo .application.schoolbook, .ode-bootstrap-neo .application.schoolbook-large, .ode-bootstrap-neo .application.scrap-book, .ode-bootstrap-neo .application.scrap-book-large, .ode-bootstrap-neo .application.support, .ode-bootstrap-neo .application.support-large, .ode-bootstrap-neo .application.userbook, .ode-bootstrap-neo .application.userbook-large {
     color: #46bfaf; }
   .ode-bootstrap-neo .application.actualites, .ode-bootstrap-neo .application.actualites-large, .ode-bootstrap-neo .application.forum, .ode-bootstrap-neo .application.forum-large, .ode-bootstrap-neo .application.mindmap, .ode-bootstrap-neo .application.mindmap-large, .ode-bootstrap-neo .application.pad, .ode-bootstrap-neo .application.pad-large, .ode-bootstrap-neo .application.poll, .ode-bootstrap-neo .application.poll-large, .ode-bootstrap-neo .application.searchengine, .ode-bootstrap-neo .application.searchengine-large, .ode-bootstrap-neo .application.video, .ode-bootstrap-neo .application.video-large, .ode-bootstrap-neo .application.visioconf, .ode-bootstrap-neo .application.visioconf-large, .ode-bootstrap-neo .application.Web-conference, .ode-bootstrap-neo .application.Web-conference-large, .ode-bootstrap-neo .application.website, .ode-bootstrap-neo .application.website-large {
     color: #4bafd5; }
-  .ode-bootstrap-neo .application.blog, .ode-bootstrap-neo .application.blog-large, .ode-bootstrap-neo .application.sacoche, .ode-bootstrap-neo .application.sacoche-large {
+  .ode-bootstrap-neo .application.blog, .ode-bootstrap-neo .application.blog-large, .ode-bootstrap-neo .application.maxicours, .ode-bootstrap-neo .application.maxicours-large, .ode-bootstrap-neo .application.sacoche, .ode-bootstrap-neo .application.sacoche-large {
     color: #1a22a2; }
-  .ode-bootstrap-neo .application.community, .ode-bootstrap-neo .application.community-large, .ode-bootstrap-neo .application.exercizer, .ode-bootstrap-neo .application.exercizer-large, .ode-bootstrap-neo .application.kne, .ode-bootstrap-neo .application.kne-large, .ode-bootstrap-neo .application.paths, .ode-bootstrap-neo .application.paths-large, .ode-bootstrap-neo .application.sharebigfiles, .ode-bootstrap-neo .application.sharebigfiles-large, .ode-bootstrap-neo .application.stats, .ode-bootstrap-neo .application.stats-large, .ode-bootstrap-neo .application.statistics, .ode-bootstrap-neo .application.statistics-large, .ode-bootstrap-neo .application.wiki, .ode-bootstrap-neo .application.wiki-large {
+  .ode-bootstrap-neo .application.community, .ode-bootstrap-neo .application.community-large, .ode-bootstrap-neo .application.exercizer, .ode-bootstrap-neo .application.exercizer-large, .ode-bootstrap-neo .application.kne, .ode-bootstrap-neo .application.kne-large, .ode-bootstrap-neo .application.paths, .ode-bootstrap-neo .application.paths-large, .ode-bootstrap-neo .application.pronote, .ode-bootstrap-neo .application.pronote-large, .ode-bootstrap-neo .application.sharebigfiles, .ode-bootstrap-neo .application.sharebigfiles-large, .ode-bootstrap-neo .application.stats, .ode-bootstrap-neo .application.stats-large, .ode-bootstrap-neo .application.statistics, .ode-bootstrap-neo .application.statistics-large, .ode-bootstrap-neo .application.wiki, .ode-bootstrap-neo .application.wiki-large {
     color: #763294; }
-  .ode-bootstrap-neo .application.rbs, .ode-bootstrap-neo .application.rbs-large {
+  .ode-bootstrap-neo .application.esidoc, .ode-bootstrap-neo .application.esidoc-large, .ode-bootstrap-neo .application.madmagz, .ode-bootstrap-neo .application.madmagz-large, .ode-bootstrap-neo .application.rbs, .ode-bootstrap-neo .application.rbs-large {
     color: #b930a2; }
   .ode-bootstrap-neo .application.competences::before, .ode-bootstrap-neo .application.competences-large::before {
     content: "\e927"; }
@@ -12839,6 +12839,21 @@ readers do not read off random characters that represent icons */
     content: '\e81f'; }
   .ode-bootstrap-neo .application.sacoche::before, .ode-bootstrap-neo .application.sacoche-large::before {
     content: '\e899'; }
+  .ode-bootstrap-neo .application.pronote::before, .ode-bootstrap-neo .application.pronote-large::before {
+    content: '\e82a'; }
+  .ode-bootstrap-neo .application.maxicours::before, .ode-bootstrap-neo .application.maxicours-large::before {
+    content: '\e825'; }
+  .ode-bootstrap-neo .application.madmagz::before, .ode-bootstrap-neo .application.madmagz-large::before {
+    content: '\e89d'; }
+  .ode-bootstrap-neo .application.universalis::before, .ode-bootstrap-neo .application.universalis-large::before {
+    content: '\e831'; }
+  .ode-bootstrap-neo .application.le-site-tv::before, .ode-bootstrap-neo .application.le-site-tv-large::before {
+    content: '\e87a'; }
+  .ode-bootstrap-neo .application.esidoc::before, .ode-bootstrap-neo .application.esidoc-large::before {
+    content: '\e826'; }
+
+.ode-bootstrap-neo .blue-background-class {
+  background-color: rgba(75, 175, 213, 0.15); }
 
 .ode-bootstrap-neo .no-2d {
   display: none; }
@@ -12851,6 +12866,9 @@ readers do not read off random characters that represent icons */
 @media (max-width: 767.98px) {
   .ode-bootstrap-neo main.main {
     padding: 15px; } }
+
+.ode-bootstrap-neo .pe-none {
+  pointer-events: none; }
 
 .ode-bootstrap-neo popover {
   position: relative;
@@ -12930,6 +12948,93 @@ readers do not read off random characters that represent icons */
     box-shadow: none;
     line-height: 27px;
     text-align: center; }
+
+.ode-bootstrap-neo help {
+  color: black;
+  line-height: normal;
+  font-size: 16px; }
+  .ode-bootstrap-neo help p {
+    color: black;
+    margin: 1rem 0; }
+  .ode-bootstrap-neo help section.lightbox {
+    z-index: 10002; }
+    .ode-bootstrap-neo help section.lightbox div.content {
+      width: 920px; }
+  .ode-bootstrap-neo help .burger-button {
+    display: none; }
+  .ode-bootstrap-neo help #TOC {
+    width: 20%;
+    margin-right: 5%;
+    float: left; }
+    .ode-bootstrap-neo help #TOC ul {
+      border-left: 5px solid #FF8500; }
+      .ode-bootstrap-neo help #TOC ul li {
+        display: block;
+        margin-block-start: 1em;
+        margin-block-end: 1em;
+        margin-inline-start: 0px;
+        margin-inline-end: 0px; }
+        .ode-bootstrap-neo help #TOC ul li a {
+          color: #4bafd5; }
+          .ode-bootstrap-neo help #TOC ul li a:hover {
+            color: #FF8500; }
+  .ode-bootstrap-neo help img {
+    max-width: 100%; }
+  .ode-bootstrap-neo help section.lightbox > div.content div.section {
+    width: 70%;
+    margin-left: 25%; }
+    .ode-bootstrap-neo help section.lightbox > div.content div.section h2 {
+      width: 100%;
+      margin-bottom: 20px;
+      color: #4bafd5; }
+
+@media (max-width: 767.98px) {
+  .ode-bootstrap-neo help #TOC {
+    width: auto;
+    margin: 20px;
+    float: none; }
+    .ode-bootstrap-neo help #TOC ul {
+      display: none;
+      position: absolute;
+      background-color: white;
+      box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.25);
+      margin-left: -20px;
+      margin-top: 40px; }
+    .ode-bootstrap-neo help #TOC ul li {
+      border-bottom: 1px solid #ddd;
+      padding: 15px;
+      margin: 0;
+      margin-left: -40px; }
+      .ode-bootstrap-neo help #TOC ul li:hover {
+        background-color: #FF8500; }
+        .ode-bootstrap-neo help #TOC ul li:hover a {
+          color: white; }
+  .ode-bootstrap-neo help .burger-button {
+    display: block;
+    background-color: #FF8500;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    border-radius: 5px;
+    text-align: center;
+    color: white;
+    position: absolute;
+    cursor: pointer;
+    padding: 0;
+    border: none; }
+    .ode-bootstrap-neo help .burger-button .burger-icon {
+      font-family: "generic-icons";
+      font-style: normal; }
+      .ode-bootstrap-neo help .burger-button .burger-icon::before {
+        content: "\e956"; }
+  .ode-bootstrap-neo help .burger-menu.active #TOC ul {
+    display: block; }
+  .ode-bootstrap-neo help section.lightbox > div.content div.section {
+    width: auto;
+    margin: 25px 0 0; }
+    .ode-bootstrap-neo help section.lightbox > div.content div.section h2 {
+      margin-left: 50px;
+      width: auto; } }
 
 .ode-bootstrap-neo .btn {
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15), 0 1px 1px rgba(0, 0, 0, 0.3); }
@@ -13410,7 +13515,8 @@ readers do not read off random characters that represent icons */
   left: 0;
   right: 0;
   z-index: 1000000;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); }
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  background: linear-gradient(to bottom right, #4bafd5, #2a9cc8) !important; }
   .ode-bootstrap-neo header.navbar.navbar-dark a {
     display: block;
     color: #fff; }
