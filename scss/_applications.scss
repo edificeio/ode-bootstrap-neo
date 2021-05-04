@@ -34,18 +34,6 @@
             flex: 1;
             align-items: center;
         }
-        &.app-1d::before {
-            content: "1D";
-            position: absolute;
-            top: 0;
-            right: 25px;
-            background-color: $primary;
-            color: $white;
-            width: 25px;
-            height: 25px;
-            border-radius: 50%;
-            font-size: 0.9rem;
-        }
         &:hover {
             background-color: rgba($white, 0.5);
             text-decoration: none;
@@ -167,10 +155,13 @@
                 right: 10px;
             }
         }
-        .applications {
-            &__favorite {
-                padding: 10px;
-            }
+    }
+    .applications {
+        &__list {
+            justify-content: space-around;
+        }
+        &__favorite {
+            padding: 10px;
         }
     }
 }
@@ -586,6 +577,26 @@
         &::before {content: '\e826'}
     }
 }
+
+// Add class for applications 1D
+// .application {
+//     &.nom-appli {
+//         &::after {
+//             font-family: "Roboto";
+//             font-size: 0.9rem;
+//             content: "1D";
+//             position: absolute;
+//             top: -5px;
+//             right: -5px;
+//             background-color: $primary;
+//             color: $white;
+//             width: 25px;
+//             height: 25px;
+//             border-radius: 50%;
+//         }
+//     }
+// }
+
 
 // shadow class for D&D Sortable.js library
 .blue-background-class {
