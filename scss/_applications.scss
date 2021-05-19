@@ -255,8 +255,8 @@
    &.actualites,
    &.actualites-large,
 
-   i.edumedia,
-   i.edumedia-large,
+   &.edumedia,
+   &.edumedia-large,
    
    &.forum,
    &.forum-large,
@@ -582,12 +582,12 @@
     &.esidoc-large {
         &::before {content: '\e826'}
     }
-    i.onisep,
-    i.onisep-large {
+    &.onisep,
+    &.onisep-large {
         &::before {content: '\e88c'}
     }
-    i.edumedia,
-    i.edumedia-large {
+    &.edumedia,
+    &.edumedia-large {
         &::before {content: '\e887'}
     }
 }
