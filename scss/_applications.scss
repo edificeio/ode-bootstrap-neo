@@ -254,6 +254,9 @@
     // ICON COLOR : CYAN
    &.actualites,
    &.actualites-large,
+
+   i.edumedia,
+   i.edumedia-large,
    
    &.forum,
    &.forum-large,
@@ -261,12 +264,15 @@
    &.mindmap,
    &.mindmap-large,
 
+   &.onisep,
+   &.onisep-large,
+
    &.pad,
    &.pad-large,
 
    &.poll,
    &.poll-large,
-   
+
    &.searchengine,
    &.searchengine-large,
 
@@ -575,6 +581,14 @@
     &.esidoc,
     &.esidoc-large {
         &::before {content: '\e826'}
+    }
+    i.onisep,
+    i.onisep-large {
+        &::before {content: '\e88c'}
+    }
+    i.edumedia,
+    i.edumedia-large {
+        &::before {content: '\e887'}
     }
 }
 
