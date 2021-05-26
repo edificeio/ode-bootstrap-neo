@@ -267,6 +267,9 @@
    &.onisep,
    &.onisep-large,
 
+   &.onisep2,
+   &.onisep2-large,
+
    &.pad,
    &.pad-large,
 
@@ -585,6 +588,10 @@
     &.onisep,
     &.onisep-large {
         &::before {content: '\e88c'}
+    }
+    &.onisep2,
+    &.onisep2-large {
+        &::before {content: '\e894'}
     }
     &.edumedia,
     &.edumedia-large {
