@@ -17,6 +17,22 @@ main.main {
     pointer-events: none;
 }
 
+// Hack for multiline ellipsis
+.text-truncate {
+    &.text-truncate--2 {
+        display: -webkit-box !important;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        white-space: normal;
+    }
+    &.text-truncate--3 {
+        display: -webkit-box !important;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        white-space: normal;
+    }
+}
+
 // TODO : A déporter plus tard - contient tout le css du composant popover et celui de l'aide en ligne
 popover {
     position: relative;
