@@ -166,17 +166,52 @@
     }
 }
 
-// APPLICATIONS ICONS
+// APPLICATIONS AND CONNECTORS : ICONS AND COLORS
 .application {
     font-family: "generic-icons";
     font-style: normal;
 
     // ICON COLOR : RED
+    &.admission-post-bac,
+    &.admission-post-bac-large,
+
+    &.assr,
+    &.assr-large,
+
+    &.canal-numerique,
+    &.canal-numerique-large,
+
+    &.cerise,
+    &.cerise-large,
+
+    &.charlemagne,
+    &.charlemagne-large,
+
     &.competences,
-    &.competences-large, 
+    &.competences-large,
+
+    &.edumoov,
+    &.edumoov-large,
+
+    &.electron,
+    &.electron-large,
+
+    &.glpi,
+    &.glpi-large,
+
+    &.madmagz,
+    &.madmagz-large,
+
+    &.matholycee,
+    &.matholycee-large,
+
+    &.mediacentre,
+    &.mediacentre-large,
+    &.public,
+    &.public-large,
 
     &.notes,
-    &.notes-large,
+    &.notes-large, 
 
     &.pages,
     &.pages-large,
@@ -187,15 +222,24 @@
     &.rack,
     &.rack-large,
 
+    &.rbs,
+    &.rbs-large,
+
+    &.support,
+    &.support-large,
+
     &.universalis,
     &.universalis-large,
+    
+    &.wiki,
+    &.wiki-large,
 
     &.workspace,
     &.workspace-large {
         color: $red;
     }
 
-    // ICON COLOR : ORANGE : FORBIDDEN (HOVER COLOR)
+    // ICON COLOR : ORANGE : FORBIDDEN (OLD HOVER COLOR)
 
     // ICON COLOR : YELLOW
     &.admin,
@@ -203,39 +247,90 @@
 
     &.archive,
     &.archive-large,
+
+    &.attendance,
+    &.attendance-large,
     
     &.calendar,
     &.calendar-large,
 
+    &.charte,
+    &.charte-large, 
+
     &.conversation,
     &.conversation-large,
+
+    &.edutheque,
+    &.edutheque-large,
 
     &.le-site-tv,
     &.le-site-tv-large,
 
     &.library,
     &.library-large,
+
+    &.monorientationenligne,
+    &.monorientationenligne-large,
+
+    &.note,
+    &.note-large,
     
     &.settings-class,
     &.settings-class-large,
 
     &.timelinegenerator,
-    &.timelinegenerator-large {
+    &.timelinegenerator-large,
+    
+    &.turboself,
+    &.turboself-large,
+
+    &.vie-scolaire,
+    &.vie-scolaire-large  {
         color: $yellow;
     }
 
     // ICON COLOR : GREEN
+    &.aide-devoirs,
+    &.aide-devoirs-large,
+    &.award,
+    &.award-large,
+    
+    &.biblionisep,
+    &.biblionisep-large,
+
+    &.ccn,
+    &.ccn-large,
+    &.residence-artiste,
+    &.residence-artiste-large,
+
     &.cahier-de-texte,
     &.cahier-de-texte-large,
-
     &.cahier-textes,
     &.cahier-textes-large,
+
+    &.cidj,
+    &.cidj-large,
 
     &.cns,
     &.cns-large,
 
     &.collaborative-wall,
     &.collaborative-wall-large,
+
+    &.hiboutheque,
+    &.hiboutheque-large,
+
+    &.itopstore,
+    &.itopstore-large,
+
+    &.netvibes,
+    &.netvibes-large,
+
+    &.notebook,
+    &.notebook-large,
+
+    &.paraschool,
+    &.paraschool-large,
 
     &.schoolbook,
     &.schoolbook-large,
@@ -252,43 +347,72 @@
     }
 
     // ICON COLOR : CYAN
-   &.actualites,
-   &.actualites-large,
+    &.actualites,
+    &.actualites-large,
 
-   &.edumedia,
-   &.edumedia-large,
+    &.assistance,
+    &.assistance-large,
+
+    &.banquesavoir,
+    &.banquesavoir-large,
+
+    &.cervoprint,
+    &.cervoprint-large,
+
+    &.edumedia,
+    &.edumedia-large,
+
+    &.europress,
+    &.europress-large,
    
-   &.forum,
-   &.forum-large,
+    &.forum,
+    &.forum-large,
+
+    &.gepi,
+    &.gepi-large,
+
+    &.lsu,
+    &.lsu-large,
    
-   &.mindmap,
-   &.mindmap-large,
+    &.mindmap,
+    &.mindmap-large,
 
-   &.onisep,
-   &.onisep-large,
+    &.monstageenligne,
+    &.monstageenligne-large,
 
-   &.onisep2,
-   &.onisep2-large,
+    &.onisep,
+    &.onisep-large,
+    &.webclasseur,
+    &.webclasseur-large,
 
-   &.pad,
-   &.pad-large,
+    &.onisep2,
+    &.onisep2-large,
 
-   &.poll,
-   &.poll-large,
+    &.pad,
+    &.pad-large,
 
-   &.searchengine,
-   &.searchengine-large,
+    &.pearltrees,
+    &.pearltrees-large,
 
-   &.video,
-   &.video-large,
+    &.poll,
+    &.poll-large,
 
-   &.visioconf,
-   &.visioconf-large,
-   &.Web-conference,
-   &.Web-conference-large,
+    &.pro-eps,
+    &.pro-eps-large,
 
-   &.website,
-   &.website-large {
+    &.searchengine,
+    &.searchengine-large,
+
+    &.video,
+    &.video-large,
+
+    &.visioconf,
+    &.visioconf-large,
+    &.Web-conference,
+    &.Web-conference-large,
+
+    &.website,
+    &.website-large {
         color: $cyan;
     }
 
@@ -296,8 +420,26 @@
     &.blog,
     &.blog-large,
 
+    &.educagri,
+    &.educagri-large,
+
+    &.elyceepicardie,
+    &.elyceepicardie-large,
+
+    &.lemonde,
+    &.lemonde-large,
+
+    &.lesechos,
+    &.lesechos-large,
+
     &.maxicours,
     &.maxicours-large,
+
+    &.museefrancaisphoto,
+    &.museefrancaisphoto-large,
+
+    &.ressourcesdepartementale91,
+    &.ressourcesdepartementale91-large,
     
     &.sacoche,
     &.sacoche-large {
@@ -305,6 +447,15 @@
     }
 
     // ICON COLOR : PURPLE
+    &.account,
+    &.account-large,
+
+    &.admin,
+    &.admin-large,
+
+    &.bcdi,
+    &.bcdi-large,
+
     &.community,
     &.community-large,
     
@@ -316,6 +467,9 @@
 
     &.paths,
     &.paths-large,
+
+    &.picardie-cursus,
+    &.picardie-cursus-large,
 
     &.pronote,
     &.pronote-large,
@@ -341,169 +495,22 @@
     &.madmagz-large,
 
     &.rbs,
-    &.rbs-large {
+    &.rbs-large,
+    
+    &.unstagepourtous,
+    &.unstagepourtous-large {
         color: $pink;
     }
 
-
-    // Définit l'image à utiliser pour l'icone
+    // DEFINE IMAGE TO USE FOR ICON
+    // APPLICATIONS ICONS
     &.competences,
     &.competences-large {
-        &::before {content:"\e927"}
+        &::before {content: '\e927'}
     }
     &.cahier-textes,
     &.cahier-textes-large {
-        &::before {content: "\e86f"}
-    }
-    &.calendar,
-    &.calendar-large {
-        &::before {content: '\e834'}
-    }
-    &.collaborative-wall,
-    &.collaborative-wall-large {
-        &::before {content: "\e800"}
-    }
-    &.community,
-    &.community-large {
-        &::before {content: '\e814'}
-    }
-    &.forum,
-    &.forum-large {
-        &::before {content: '\e81e'}
-    }
-    &.pages,
-    &.pages-large {
-        &::before {content: "\e876"}
-    }
-    &.poll,
-    &.poll-large {
-        &::before {content: '\e832'}
-    }
-    &.rack,
-    &.rack-large {
-        &::before {content:'\e80d'}
-    }
-    &.rbs,
-    &.rbs-large {
-        &::before {content: '\e80e'}
-    }
-    &.searchengine,
-    &.searchengine-large {
-        &::before {content: '\e8d0'}
-    }
-    &.sharebigfiles,
-    &.sharebigfiles-large {
-        &::before {content: "\e8cb"}
-    }
-    &.schoolbook,
-    &.schoolbook-large {
-        &::before {content:'\e91e'}
-    }
-    &.archive,
-    &.archive-large {
-        &::before {content:'\e81d'}
-    }
-    &.admin,
-    &.admin-large {
-        &::before {content:'\e81a'}
-    }
-    &.cahier-de-texte,
-    &.cahier-de-texte-large {
-        &::before {content:'\e910'}
-    }
-    &.wiki,
-    &.wiki-large {
-        &::before {content:'\e813'}
-    }
-    &.cns,
-    &.cns-large {
-        &::before {content:'\e88a'}
-    }
-    &.conversation,
-    &.conversation-large {
-        &::before {content:'\e804'}
-    }
-    &.paths,
-    &.paths-large {
-        &::before {content:'\e94d'}
-    }
-    &.notebook,
-    &.notebook-large {
-        &::before {content:'\e8d4'}
-    }
-    &.scrap-book,
-    &.scrap-book-large {
-        &::before {content:'\e8d4'}
-    }
-    &.blog,
-    &.blog-large {
-        &::before {content:'\e809'}
-    }
-    &.account,
-    &.account-large {
-        &::before {content:'\e905'}
-    }
-    &.support,
-    &.support-large {
-        &::before {content:'\e835'}
-    }
-    &.workspace,
-    &.workspace-large {
-        &::before {content:'\e81b'}
-    }
-    &.admin-portal,
-    &.admin-portal-large {
-        &::before {content:'\e908'}
-    }
-    &.stats,
-    &.stats-large {
-        &::before {content:'\e909'}
-    }
-    &.userbook,
-    &.userbook-large {
-        &::before {content:'\e811'}
-    }
-    &.mindmap,
-    &.mindmap-large {
-        &::before {content:'\e859'}
-    }
-    &.timelinegenerator,
-    &.timelinegenerator-large {
-        &::before {content:'\e819'}
-    }
-    &.actualites,
-    &.actualites-large {
-        &::before {content:'\e85b'}
-    }
-    &.pad,
-    &.pad-large {
-        &::before {content:'\e829'}
-    }
-    &.settings-class,
-    &.settings-class-large {
-        &::before {content: '\e942'}
-    }
-    &.library,
-    &.library-large {
-        &::before {content: '\e94c'}
-    }
-    &.visioconf,
-    &.visioconf-large,
-    &.Web-conference,
-    &.Web-conference-large {
-        &::before {content: "\e957"}
-    }
-    &.notes,
-    &.notes-large {
-        &::before {content: '\e832'}
-    }
-    &.attendance,
-    &.attendance-large {
-        &::before {content: '\e80b'}
-    }
-    &.exercizer,
-    &.exercizer-large {
-        &::before {content: '\e833'}
+        &::before {content: '\e86f'}
     }
     &.calendar,
     &.calendar-large {
@@ -512,14 +519,6 @@
     &.collaborative-wall,
     &.collaborative-wall-large {
         &::before {content: '\e800'}
-    }
-    &.statistics,
-    &.statistics-large {
-        &::before {content: '\e810'}
-    }
-    &.polls,
-    &.poll-large {
-        &::before {content: '\e832'}
     }
     &.community,
     &.community-large {
@@ -533,33 +532,184 @@
     &.pages-large {
         &::before {content: '\e876'}
     }
+    &.poll,
+    &.poll-large,
+    &.polls,
+    &.polls-large {
+        &::before {content: '\e832'}
+    }
+    &.rack,
+    &.rack-large {
+        &::before {content: '\e80d'}
+    }
     &.rbs,
     &.rbs-large {
         &::before {content: '\e80e'}
+    }
+    &.searchengine,
+    &.searchengine-large {
+        &::before {content: '\e8d0'}
     }
     &.sharebigfiles,
     &.sharebigfiles-large {
         &::before {content: '\e8cb'}
     }
-    &.website,
-    &.website-large {
-        &::before {content: '\e94a'}
+    &.schoolbook,
+    &.schoolbook-large {
+        &::before {content: '\e91e'}
     }
-    &.parametrage,
-    &.parametrage-large {
-       &::before {content: '\e92f'}
+    &.archive,
+    &.archive-large {
+        &::before {content: '\e81d'}
+    }
+    &.admin,
+    &.admin-large {
+        &::before {content: '\e81a'}
+    }
+    &.cahier-de-texte,
+    &.cahier-de-texte-large {
+        &::before {content: '\e910'}
+    }
+    &.wiki,
+    &.wiki-large {
+        &::before {content: '\e813'}
+    }
+    &.cns,
+    &.cns-large {
+        &::before {content: '\e88a'}
+    }
+    &.conversation,
+    &.conversation-large {
+        &::before {content: '\e804'}
+    }
+    &.paths,
+    &.paths-large {
+        &::before {content: '\e94d'}
+    }
+    &.notebook,
+    &.notebook-large,
+    &.scrap-book,
+    &.scrap-book-large {
+        &::before {content: '\e8d4'}
+    }
+    &.blog,
+    &.blog-large {
+        &::before {content: '\e809'}
+    }
+    &.account,
+    &.account-large {
+        &::before {content: '\e905'}
+    }
+    &.support,
+    &.support-large {
+        &::before {content: '\e835'}
+    }
+    &.workspace,
+    &.workspace-large {
+        &::before {content: '\e81b'}
+    }
+    &.admin-portal,
+    &.admin-portal-large {
+        &::before {content: '\e908'}
+    }
+    &.stats,
+    &.stats-large {
+        &::before {content: '\e909'}
+    }
+    &.userbook,
+    &.userbook-large,
+    &.directory,
+    &.directory-large {
+        &::before {content: '\e811'}
+    }
+    &.mindmap,
+    &.mindmap-large {
+        &::before {content: '\e859'}
+    }
+    &.timelinegenerator,
+    &.timelinegenerator-large {
+        &::before {content: '\e819'}
+    }
+    &.actualites,
+    &.actualites-large {
+        &::before {content: '\e85b'}
+    }
+    &.pad,
+    &.pad-large,
+    &.collaborativeeditor,
+    &.collaborativeeditor-large {
+        &::before {content: '\e829'}
+    }
+    &.settings-class,
+    &.settings-class-large {
+        &::before {content: '\e942'}
+    }
+    &.library,
+    &.library-large {
+        &::before {content: '\e94c'}
+    }
+    &.visioconf,
+    &.visioconf-large,
+    &.Web-conference,
+    &.Web-conference-large {
+        &::before {content: '\e957'}
+    }
+    &.notes,
+    &.notes-large {
+        &::before {content: '\e832'}
+    }
+    &.attendance,
+    &.attendance-large {
+        &::before {content: '\e80b'}
+    }
+    &.exercizer,
+    &.exercizer-large {
+        &::before {content: '\e833'}
+    }
+    &.statistics,
+    &.statistics-large {
+        &::before {content: '\e810'}
+    }
+    &.website,
+    &.website-large{
+        &::before {content: '\e90a'}
     }
     &.video,
     &.video-large {
         &::before {content: '\e872'}
     }
-    &.kne,
-    &.kne-large {
-        &::before {content: '\e81f'}
+    // ---END APPLICATIONS ICONS---
+
+    // ---CONNECTORS ICONS---
+    &.pearltrees,
+    &.pearltrees-large {
+        &::before {content: '\e933'}
+    }
+    &.esidoc,
+    &.esidoc-large {
+        &::before {content: '\e826'}
     }
     &.sacoche,
     &.sacoche-large {
         &::before {content: '\e899'}
+    }
+    &.onisep,
+    &.onisep-large,
+    &.webclasseur,
+    &.webclasseur-large {
+        &::before {content: '\e88c'}
+    }
+    &.onisep2,
+    &.onisep2-large {
+        &::before {content: '\e894'}
+    }
+    &.edumedia,
+    &.edumedia-large {
+        &::before {content: '\e887'}
+    }
+    &.le-site-tv,
+    &.le-site-tv-large {
+        &::before {content: '\e87a'}
     }
     &.pronote,
     &.pronote-large {
@@ -577,26 +727,201 @@
     &.universalis-large {
         &::before {content: '\e831'}
     }
-    &.le-site-tv,
-    &.le-site-tv-large {
-        &::before {content: '\e87a'}
+    &.kne,
+    &.kne-large {
+        &::before {content: '\e81f'}
     }
-    &.esidoc,
-    &.esidoc-large {
-        &::before {content: '\e826'}
+    &.residence-artiste,
+    &.residence-artiste-large,
+    &.ccn,
+    &.ccn-large {
+        &::before {content: '\e90f'}
     }
-    &.onisep,
-    &.onisep-large {
-        &::before {content: '\e88c'}
+    &.hiboutheque,
+    &.hiboutheque-large {
+        &::before {content: '\e90e'}
     }
-    &.onisep2,
-    &.onisep2-large {
-        &::before {content: '\e894'}
+    &.cerise,
+    &.cerise-large {
+        &::before {content: '\e81c'}
     }
-    &.edumedia,
-    &.edumedia-large {
-        &::before {content: '\e887'}
+    &.paraschool,
+    &.paraschool-large {
+        &::before {content: '\e82d'}
     }
+    &.scolinfo,
+    &.scolinfo-large {
+        &::before {content: '\e886'}
+    }
+    &.edumoov,
+    &.edumoov-large {
+        &::before {content: '\e939'}
+    }
+    &.lsu,
+    &.lsu-large {
+        &::before {content: '\e93a'}
+    }
+    &.charte,
+    &.charte-large {
+        &::before {content: '\e93b'}
+    }
+    &.qwant-junior,
+    &.qwant-junior-large {
+        &::before {content: '\e93d'}
+    }
+    &.canal-numerique,
+    &.canal-numerique-large {
+        &::before {content: '\e80a'}
+    }
+    &.aide-devoirs,
+    &.aide-devoirs-large,
+    &.award,
+    &.award-large {
+        &::before {content: '\e818'}
+    }
+    &.admission-post-bac,
+    &.admission-post-bac-large {
+        &::before {content: '\e816'}
+    }
+    &.charlemagne,
+    &.charlemagne-large {
+        &::before {content: '\e885'}
+    }
+    &.vie-scolaire,
+    &.vie-scolaire-large {
+        &::before {content: '\e879'}
+    }
+    &.pro-eps,
+    &.pro-eps-large {
+        &::before {content: '\e884'}
+    }
+    &.picardie-cursus,
+    &.picardie-cursus-large {
+        &::before {content: '\e921'}
+    }
+    &.banquesavoir,
+    &.banquesavoir-large {
+        &::before {content: '\e88d'}
+    }
+    &.unstagepourtous,
+    &.unstagepourtous-large {
+        &::before {content: '\e88e'}
+    }
+    &.bcdi,
+    &.bcdi-large {
+        &::before {content: '\e88f'}
+    }
+    &.ressourcesdepartementale91,
+    &.ressourcesdepartementale91-large {
+        &::before {content: '\e890'}
+    }
+    &.assr,
+    &.assr-large {
+        &::before {content: '\e891'}
+    }
+    &.museefrancaisphoto,
+    &.museefrancaisphoto-large {
+        &::before {content: '\e892'}
+    }
+    &.cidj,
+    &.cidj-large {
+        &::before {content: '\e893'}
+    }
+    &.itopstore,
+    &.itopstore-large {
+        &::before {content: '\e895'}
+    }
+    &.cervoprint,
+    &.cervoprint-large {
+        &::before {content: '\e896'}
+    }
+    &.glpi,
+    &.glpi-large {
+        &::before {content: '\e897'}
+    }
+    &.elyceepicardie,
+    &.elyceepicardie-large {
+        &::before {content: '\e898'}
+    }
+    &.electron,
+    &.electron-large {
+        &::before {content: '\e89b'}
+    }
+    &.gepi,
+    &.gepi-large {
+        &::before {content: '\e89c'}
+    }
+    &.educagri,
+    &.educagri-large {
+        &::before {content: '\e89e'}
+    }
+    &.monorientationenligne,
+    &.monorientationenligne-large {
+        &::before {content: '\e89f'}
+    }
+    &.turboself,
+    &.turboself-large {
+        &::before {content: '\e8a0'}
+    }
+    &.netvibes,
+    &.netvibes-large {
+        &::before {content: '\e8a1'}
+    }
+    &.monstageenligne,
+    &.monstageenligne-large {
+        &::before {content: '\e8a2'}
+    }
+    &.matholycee,
+    &.matholycee-large {
+        &::before {content: '\e8a3'}
+    }
+    &.biblionisep,
+    &.biblionisep-large {
+        &::before {content: '\e8a4'}
+    }
+    &.lesechos,
+    &.lesechos-large {
+        &::before {content: '\e8a5'}
+    }
+    &.edutheque,
+    &.edutheque-large {
+        &::before {content: '\e8a6'}
+    }
+    &.europress,
+    &.europress-large {
+        &::before {content: '\e8a7'}
+    }
+    &.lemonde,
+    &.lemonde-large {
+        &::before {content: '\e8a9'}
+    }
+    &.assistance,
+    &.assistance-large {
+        &::before {content: '\e93c'}
+    }
+    &.note,
+    &.note-large {
+        &::before {content: '\e806'}
+    }
+    &.parametrage,
+    &.parametrage-large {
+        &::before {content: '\e92f'}
+    }
+    &.public,
+    &.public-large,
+    &.mediacentre,
+    &.mediacentre-large {
+        &::before {content: '\e863'}
+    }
+    &.connecteur-generique1,
+    &.connecteur-generique1-large {
+        &::before {content: '\e8aa'}
+    }
+    &.connecteur-generique2,
+    &.connecteur-generique2-large {
+        &::before {content: '\e8ab'}
+    }
+    // ---END CONNECTORS ICONS---
 }
 
 // Add class for applications 1D
