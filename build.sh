@@ -44,7 +44,7 @@ init () {
     echo "[init] Get branch name from git..."
     BRANCH_NAME=`git branch | sed -n -e "s/^\* \(.*\)/\1/p"`
   fi
-  docker-compose run -e OVERRIDE_NAME=$OVERRIDE_NAME -e OVERRIDE_MODNAME=$OVERRIDE_MODNAME -e BRANCH_NAME=$BRANCH_NAME -e FRONT_TAG=$FRONT_TAG -e NEXUS_ODE_USERNAME=$NEXUS_ODE_USERNAME -e NEXUS_ODE_PASSWORD=$NEXUS_ODE_PASSWORD --rm -u "$USER_UID:$GROUP_GID" gradle sh -c "gradle generateTemplate"
+  docker-compose run -e OVERRIDE_DIST=$OVERRIDE_DIST -e OVERRIDE_NAME=$OVERRIDE_NAME -e OVERRIDE_MODNAME=$OVERRIDE_MODNAME -e BRANCH_NAME=$BRANCH_NAME -e FRONT_TAG=$FRONT_TAG -e NEXUS_ODE_USERNAME=$NEXUS_ODE_USERNAME -e NEXUS_ODE_PASSWORD=$NEXUS_ODE_PASSWORD --rm -u "$USER_UID:$GROUP_GID" gradle sh -c "gradle generateTemplate"
   #dont need to exec twice
   if [ "$FIRST_TIME" = "false" ]; then
     return 0
@@ -95,17 +95,17 @@ publishNexus () {
     echo "sonatypeUsername=$NEXUS_SONATYPE_USERNAME" >> "?/.gradle/gradle.properties"
     echo "sonatypePassword=$NEXUS_SONATYPE_PASSWORD" >> "?/.gradle/gradle.properties"
   fi
-  docker-compose run -e OVERRIDE_NAME=$OVERRIDE_NAME -e OVERRIDE_MODNAME=$OVERRIDE_MODNAME --rm -u "$USER_UID:$GROUP_GID" gradle sh -c "gradle deploymentJar fatJar publish"
+  docker-compose run -e OVERRIDE_NAME=$OVERRIDE_NAME -e OVERRIDE_MODNAME=$OVERRIDE_MODNAME -e OVERRIDE_DIST=$OVERRIDE_DIST --rm -u "$USER_UID:$GROUP_GID" gradle sh -c "gradle deploymentJar fatJar publish"
 }
 
 publishMavenLocal(){
-  docker-compose run -e OVERRIDE_NAME=$OVERRIDE_NAME -e OVERRIDE_MODNAME=$OVERRIDE_MODNAME --rm -u "$USER_UID:$GROUP_GID" gradle sh -c "gradle deploymentJar fatJar publishToMavenLocal"
+  docker-compose run -e OVERRIDE_NAME=$OVERRIDE_NAME -e OVERRIDE_MODNAME=$OVERRIDE_MODNAME  -e OVERRIDE_DIST=$OVERRIDE_DIST --rm -u "$USER_UID:$GROUP_GID" gradle sh -c "gradle deploymentJar fatJar publishToMavenLocal"
 }
 
 
-export FIRST_TIME=true
 for param in "$@"
 do
+  export FIRST_TIME=true
   names=($(ls -d ./scss/overrides/*))
   for dirtyName in "${names[@]}"; do
     name=`echo $dirtyName | sed 's/.\/scss\/overrides\///'`

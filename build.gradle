@@ -51,6 +51,7 @@ task generateDeployment(type: Copy)  {
     from 'conf.deployment'
     filter { line -> line.replaceAll('%VERSION%', "${version}") }
     filter { line -> line.replaceAll('%MODNAME%', "${System.env.OVERRIDE_MODNAME}") }
+    filter { line -> line.replaceAll('%DIST_DIR%', "${System.env.OVERRIDE_DIST}") }
     rename 'conf.deployment', "conf.json.template"
     into "deployment/${System.env.OVERRIDE_NAME}/${System.env.OVERRIDE_MODNAME}/"
 }
