@@ -5,14 +5,14 @@
   "scripts": {
     "sass:watch": "node-sass --source-map true -w scss/index.scss docs/index.css",
     "sass:build:debug": "node-sass --source-map true scss/index.scss docs/index.css",
-    "sass:build:release": "node-sass --output-style compressed skins/$SKIN/theme.scss skins/$SKIN/theme.css && cpr skins/$SKIN/ dist/skins/$SKIN/ -o",
+    "sass:build:release": "node-sass --output-style compressed ${SKIN_DIR}/$SKIN/theme.scss ${SKIN_DIR}/$SKIN/theme.css && cpr ${SKIN_DIR}/$SKIN/ ${DIST_DIR}/skins/$SKIN/ -o",
     "dev:dependencies": "cpr node_modules/ode-bootstrap/assets/ docs/ -o",
     "dev:prepare": "npm run sass:build:debug && npm run dev:dependencies && cpr assets/ docs/ -o",
     "dev:watch": "npm run dev:prepare && concurrently  \" npm run sass:watch \" \" npm run dev:serve  \" ",
     "dev:serve": "live-server --open=docs/ --ignore=**/node_modules/**,**/dist/**,**/package.json,**/.git/**",
-    "release:clean": "rimraf dist",
-    "release:dependencies": "cpr node_modules/ode-bootstrap/assets/ dist/ -o",
-    "release:prepare": "npm run release:clean && npm run release:dependencies && cpr assets/ dist/ -o",
+    "release:clean": "rimraf ${DIST_DIR}",
+    "release:dependencies": "cpr node_modules/ode-bootstrap/assets/ ${DIST_DIR}/ -o",
+    "release:prepare": "npm run release:clean && npm run release:dependencies && cpr assets/ ${DIST_DIR}/ -o",
     "release:build": "npm run release:prepare && SKIN=default npm run sass:build:release"
   },
   "repository": {
