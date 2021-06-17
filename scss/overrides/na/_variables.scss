@@ -76,7 +76,7 @@ $primary-dark:          darken($primary, 10%) ;
 $primary-darkest:       darken($primary, 30%) ;
 $primary-gradient:      linear-gradient($primary, $primary-light);
 
-$secondary:             $red ;
+$secondary:             #E20037 ; // Add specific color for N.A.
 $secondary-gradient:    linear-gradient($secondary, lighten($secondary, 10%));
 
 $accent:                $orange ;
