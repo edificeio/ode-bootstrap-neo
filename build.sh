@@ -34,6 +34,7 @@ clean () {
   rm -rf node_modules
   rm -rf dist
   rm -rf build
+  rm -rf build-css
   rm -rf deployment/*
 }
 
@@ -114,7 +115,7 @@ do
     export OVERRIDE_SRC="overrides/$name"
     export OVERRIDE_DIST="dist/$name"
     export OVERRIDE_DIST_WILDCARD="dist/$name/**"
-    export OVERRIDE_BUILD="build/$name"
+    export OVERRIDE_BUILD="build-css/$name"
     export OVERRIDE_MODNAME="$MOD_NAME-$name"
     #default does not have suffix on name
     if [ "$name" = "default" ]; then
