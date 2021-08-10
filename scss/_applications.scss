@@ -426,6 +426,9 @@
     &.elyceepicardie,
     &.elyceepicardie-large,
 
+    &.form,
+    &.form-large,
+
     &.lemonde,
     &.lemonde-large,
 
@@ -677,6 +680,10 @@
     &.video,
     &.video-large {
         &::before {content: '\e872'}
+    }
+    &.form,
+    &.form-large {
+        &::before {content: '\e95c'}
     }
     // ---END APPLICATIONS ICONS---
 
