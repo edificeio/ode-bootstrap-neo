@@ -175,6 +175,9 @@
     &.admission-post-bac,
     &.admission-post-bac-large,
 
+    &.absences,
+    &.absences-large,
+
     &.assr,
     &.assr-large,
 
@@ -631,6 +634,10 @@
     &.agenda,
     &.agenda-large {
         &::before {content:'\e83c'}
+    }
+    &.absences,
+    &.absences-large {
+        &::before {content:'\e80b'}
     }
     &.mindmap,
     &.mindmap-large {
