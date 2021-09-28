@@ -248,6 +248,9 @@
     &.archive,
     &.archive-large,
 
+    &.agenda,
+    &.agenda-large,
+
     &.attendance,
     &.attendance-large,
     
@@ -624,6 +627,10 @@
     &.directory,
     &.directory-large {
         &::before {content: '\e811'}
+    }
+    &.agenda,
+    &.agenda-large {
+        &::before {content:'\e83c'}
     }
     &.mindmap,
     &.mindmap-large {

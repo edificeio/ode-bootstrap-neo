@@ -203,6 +203,9 @@
 
     &.archive,
     &.archive-large,
+
+    &.agenda,
+    &.agenda-large,
     
     &.calendar,
     &.calendar-large,
@@ -462,6 +465,10 @@
     &.userbook,
     &.userbook-large {
         &::before {content:'\e811'}
+    }
+    &.agenda,
+    &.agenda-large {
+        &::before {content:'\e83c'}
     }
     &.mindmap,
     &.mindmap-large {
