@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="../index.css" />
+</head>
+<body style="background-color: white">
+  <section class="explorer-view table-list" style="height: 100vh">
+    <section class="table-list-header">
+      <span class="table-list-item-preview"></span>
+      <span class="table-list-title"><i class="fas fa-sort"></i> Titre</span>
+      <span class="table-list-status text-white">Status</span>
+      <span class="table-list-owner"><i class="fas fa-sort"></i> Propriétaire</span>
+      <span class="table-list-modification"><i class="fas fa-sort"></i> Dernière modification</span>
+    </section>
+    <article class="table-list-item folder">
+      <i class="table-list-item-preview ic-folder"></i>
+      <h2 class="table-list-title">
+        Titre du dossier
+      </h2>
+      <div class="table-list-status">
+        <span title="Ressource public"><i class="ic-public"></i></span>
+        <span title="Ressource partagée"><i class="ic-users"></i></span>
+      </div>
+      <article class="table-list-owner">
+        <span>Moi</span>
+      </article>
+
+      <div class="table-list-modification">
+        <span class="">Il y a 2 heures</span><br/>
+        <span class="table-list-modifiedBy">Moi</span>
+      </div>
+    </article>
+
+    <article class="table-list-item item">
+      <span class="table-list-item-preview">
+        <img class="table-list-image" src="https://loremflickr.com/100/100/">
+      </span>
+      <h2 class="table-list-title">
+        Titre de la ressource avec une image
+      </h2>
+      <div class="table-list-status">
+        <span title="Ressource partagée"><i class="ic-users"></i></span>
+      </div>
+      <article class="table-list-owner">
+        <img class="avatar avatar--25" src="https://oasys.ch/wp-content/uploads/2019/03/photo-avatar-profil.png" />
+        <a>Isabelle Polonio</a>
+      </article>
+
+      <div class="table-list-modification">
+        <span class="">Il y a 3 jours</span><br/>
+        <span class="table-list-modifiedBy">par <a>Brigitte Fontaine</a></span>
+      </div>
+    </article>
+    <article class="table-list-item">
+      <i class="table-list-item-preview ic-app blog color-app-blog"></i>
+      <h2 class="table-list-title">
+        Titre de la ressource avec une icône
+      </h2>
+      <div class="table-list-status">
+        <span title="Ressource public"><i class="ic-public"></i></span>
+      </div>
+      <article class="table-list-owner">
+        <img class="avatar avatar--25" src="https://oasys.ch/wp-content/uploads/2019/03/photo-avatar-profil.png" />
+        <a>Isabelle Polonio</a>
+      </article>
+
+      <div class="table-list-modification">
+        <span class="">Il y a 1 semaine</span><br/>
+        <span class="table-list-modifiedBy">par <a>Alain Terrieur</a></span>
+      </div>
+    </article>
+    <article class="table-list-item active">
+      <i class="table-list-item-preview ic-app blog color-app-blog"></i>
+      <h2 class="table-list-title">
+        Titre de la ressource avec une icône (active)
+      </h2>
+      <div class="table-list-status">
+        <span title="Ressource public"><i class="ic-public"></i></span>
+      </div>
+      <article class="table-list-owner">
+        <img class="avatar avatar--25" src="https://oasys.ch/wp-content/uploads/2019/03/photo-avatar-profil.png" />
+        <a>Isabelle Polonio</a>
+      </article>
+
+      <div class="table-list-modification">
+        <span class="">Il y a 1 semaine</span><br/>
+        <span class="table-list-modifiedBy">par <a>Alain Terrieur</a></span>
+      </div>
+    </article>
+
+    <div class="d-flex m-2 justify-content-center" style="flex-basis: 100%;">
+      <a class="btn btn-secondary">Charger plus de ressources (20)</a>
+    </div>
+  </section>
+
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+  <script type="text/javascript">
+  $('#myModal').on('shown.bs.modal', function () {
+    $('#myInput').trigger('focus')
+  })
+  </script>
+</body>
+</html>

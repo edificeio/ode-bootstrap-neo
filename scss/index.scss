@@ -1,29 +1,22 @@
-@import "variables-ode";
+/* ROBOTO FONT */
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,400;1,700&display=swap");
 
-@import "node_modules/bootstrap/scss/functions";
-@import "node_modules/bootstrap/scss/variables";
-@import "node_modules/bootstrap/scss/mixins";
+/* VARIABLES */
+@import "variables/";
+
+/* OVERRIDE */
 @import "variables";
+@import "overrides";
+
+/* BOOTSTRAP 5 FRAMEWORK */
 @import "node_modules/ode-bootstrap/scss/index";
-@import "mixins-neo";
-@import "fonts";
 
-/*TODO define skins here if there is not variable changes. Else define in specific files (and release build should take all of them)*/
+/* LAYOUT */
+@import "layout/";
 
-#{$root-selector}{
-    @import "applications";
-    @import "custom";
-    @import "breadcrumb";
-    @import "buttons";
-    @import "display";
-    @import "forms";
-    @import "icons";
-    @import "lightbox";
-    @import "modal";
-    @import "mixins-neo";
-    @import "navbar";
-    @import "notifications";
-    @import "transitions";
-}
+/* LEGACY */
+@import "legacy/";
 
-@import "retrocompat";
+/* COMPONENTS */
+// Contient tous nos composants visuels, simple ou complexe
+@import "components/"

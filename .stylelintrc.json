@@ -1,0 +1,34 @@
+{
+    "extends": ["stylelint-config-twbs-bootstrap/scss"],
+    "rules": {
+        "declaration-no-important": null,
+        "indentation": 4,
+        "number-leading-zero": "always",
+        "at-rule-empty-line-before": ["always", {
+            "except": ["blockless-after-blockless", "first-nested"],
+            "ignore":["after-comment"]
+        }],
+        "max-empty-lines": 1,
+        "block-opening-brace-space-before":["always"],
+        "block-closing-brace-empty-line-before": "never",
+        "rule-empty-line-before": [
+            "always-multi-line",
+            {
+                "except":["after-single-line-comment", "first-nested"],
+                "ignore":["after-comment"]
+            }
+        ],
+        "custom-property-empty-line-before": [
+            "always",
+            {
+                "except": ["after-custom-property", "first-nested"]
+            }
+        ],
+        "declaration-empty-line-before": [
+            "always",
+            {
+                "except": ["after-declaration", "first-nested"]
+            }
+        ]
+    }
+}

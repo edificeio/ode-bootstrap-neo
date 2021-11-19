@@ -6,24 +6,48 @@ pipeline {
       stage('Init') {
         steps {
           checkout scm
-          sh './build.sh clean init'
+          script {
+            if (params.OVERRIDE) {
+              sh "./build.sh --override=\"${params.OVERRIDE}\" clean init"
+            } else {
+              sh './build.sh clean init'
+            }
+          }
         }
       }
       stage('Build') {
         steps {
-          sh './build.sh build'
+          script {
+            if (params.OVERRIDE) {
+              sh "./build.sh --override=\"${params.OVERRIDE}\" build"
+            } else {
+              sh './build.sh build'
+            }
+          }
         }
       }
       stage('Publish Nexus') {
         steps {
-          sh './build.sh publishNexus'
+          script {
+            if (params.OVERRIDE) {
+              sh "./build.sh --override=\"${params.OVERRIDE}\" publishNexus"
+            } else {
+              sh './build.sh publishNexus'
+            }
+          }
         }
       }
       stage('Publish NPM') {
         steps {
           configFileProvider([configFile(fileId: '.npmrc-infra-front', variable: 'NPMRC')]) {
             sh 'cp $NPMRC .npmrc'
-            sh './build.sh publishNPM'
+            script {
+              if (params.OVERRIDE) {
+                sh "./build.sh --override=\"${params.OVERRIDE}\" publishNPM"
+              } else {
+                sh './build.sh publishNPM'
+              }
+            }
           }
         }
       }

@@ -1,5 +1,0 @@
-// Ancienne mixin à supprimer
-@mixin run-transition($property: color, $speed: 250ms, $timing: ease) {
-  transition: $property $speed $timing;
-}
-

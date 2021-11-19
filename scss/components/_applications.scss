@@ -1,0 +1,232 @@
+.applications {
+    &-title {
+        color: $secondary;
+    }
+    &-item {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: $application-width;
+        height: $application-height;
+        padding: 5px;
+        margin: 5px;
+        color: $text-color;
+        text-align: center;
+        background-color: transparent;
+        border: 1px solid transparent;
+        border-radius: $border-radius-lg;
+        transition: background-color 0.25s ease-in-out, box-shadow 0.25s ease-in-out, border 0.35s ease-in-out;
+
+        > i {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: $application-icon-size;
+            height: $application-icon-size;
+            font-size: 5rem;
+            // color: $text-color;
+        }
+
+        span {
+            display: flex;
+            flex: 1;
+            align-items: center;
+            padding-top: 5px;
+            line-height: 1.3;
+            font-size: 1.6rem;
+        }
+
+        img {
+            max-width: 80px;
+            padding: 10px;
+        }
+
+        // Only 2D
+        &.add,
+        &.remove {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            width: 40px;
+            height: 40px;
+            padding: 0;
+            text-align: center;
+            background-color: $secondary;
+            border: 1px solid transparent;
+            border-radius: 50%;
+            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.15);
+
+            i {
+                font-size: 1.5rem;
+                line-height: 30px;
+                color: $white;
+            }
+
+            &:hover {
+                background-color: $primary;
+            }
+        }
+
+        &.no-hover {
+            background-color: inherit;
+            border-color: transparent;
+            box-shadow: inherit;
+        }
+
+        .opacity-50 {
+            opacity: 0.5;
+        }
+
+        &:hover {
+            color: inherit;
+            background-color: rgba($white, 0.5);
+            border: 1px solid $gray-300;
+            box-shadow: 5px 5px 15px rgba($black, 0.1);
+            transition: background-color 0.25s ease-in-out, box-shadow 0.25s ease-in-out, border 0.35s ease-in-out;
+        }
+
+        &:active {
+            background-color: rgba($white, 0.8);
+            box-shadow: 2px 2px 10px rgba($black, 0.1) inset;
+            transition: background-color 0.25s ease-in-out, box-shadow 0.35s ease-in-out, border 0.15s ease-in-out;
+        }
+
+        &.blue-background-class {
+            background-color: rgba($secondary, 0.15);
+        }
+
+        &.app-1d::before {
+            font-family: "Roboto";
+            font-size: 1.5rem;
+            content: "1D";
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background-color: $primary;
+            color: $white;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+        }
+    }
+    &-list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    &-favorite {
+        padding: 10px;
+        background-color: rgba($white, 0.75);
+        border: 1px solid $gray-300;
+        border-radius: $border-radius-lg;
+        box-shadow: 3px 3px 15px rgba(0, 0, 0, 0.05);
+
+        @extend .mt-3;
+
+        h2 {
+            font-size: 1.2rem;
+        }
+    }
+
+    &-list,
+    &-connector {
+        h2 {
+            @extend .mb-3;
+
+            flex-basis: 100%;
+            font-size: 1.2rem;
+
+            span {
+                padding-right: 10px;
+                background-color: $gray-100;
+            }
+
+            &::after {
+                display: block;
+                margin-top: -10px;
+                content: "";
+                border-top: 1px solid $gray-300;
+            }
+        }
+    }
+}
+
+@include media-breakpoint-down(sm) {
+    .applications {
+        &-item {
+            width: $application-width-sm;
+            height: $application-height-sm;
+            margin: 5px;
+
+            > i {
+                width: $application-icon-size-sm;
+                height: $application-icon-size-sm;
+                font-size: 4rem;
+            }
+
+            img {
+                max-width: 60px;
+                max-height: 60px;
+            }
+
+            span {
+                font-size: 1.4rem;
+            }
+
+            &.add,
+            &.remove {
+                top: 10px;
+                right: 10px;
+            }
+        }
+        &-list {
+            justify-content: space-around;
+        }
+
+        &-favorite {
+            padding: 10px;
+        }
+    }
+}
+
+// Add class for applications 1D
+.application {
+    &.nom-appli {
+        &::after {
+            font-family: "Roboto";
+            font-size: 0.9rem;
+            content: "1D";
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background-color: $primary;
+            color: $white;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+        }
+    }
+}
+
+// Add class for applications 2D
+// .application {
+//     &.nom-appli {
+//         &::after {
+//             font-family: "Fira Sans";
+//             font-size: 0.9rem;
+//             content: "2D";
+//             position: absolute;
+//             top: 0;
+//             right: 10px;
+//             background-color: $primary;
+//             color: $white;
+//             width: 25px;
+//             height: 25px;
+//             line-height: 25px;
+//             border-radius: 50%;
+//         }
+//     }
+// }

@@ -2,6 +2,5 @@
   "name":"com.opendigitaleducation~%MODNAME%~%VERSION%",
   "type": "theme",
   "waitDeploy": true,
-  "extension":"-fat.jar",
-  "dist-dir": "%DIST_DIR%"
+  "extension":"-fat.jar"
 }

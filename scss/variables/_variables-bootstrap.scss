@@ -1,0 +1,35 @@
+//Ref page : https://github.com/twbs/bootstrap/blob/main/scss/_variables.scss
+
+// Body
+$body-bg: $gray-100;
+$text-color: $gray-800;
+
+// Links
+$link-color: $cyan;
+$link-hover-color: $orange;
+
+$box-shadow-sm: 0 0.125rem 0.25rem rgba($gray-900, 0.075);
+$box-shadow: 0 0.5rem 1rem rgba($gray-900, 0.15);
+$box-shadow-lg: 0 1rem 3rem rgba($gray-900, 0.175);
+
+$component-active-bg: $secondary;
+
+// Typography
+$font-family-sans-serif: "Roboto", sans-serif;
+
+// Buttons + Forms
+$input-btn-font-family: "Roboto";
+$input-bg: $white;
+
+// Buttons
+$btn-box-shadow: inset 0 1px 0 rgba($white, 0.15), 0 1px 1px rgba($gray-900, 0.3);
+$btn-disabled-opacity: 0.3;
+$btn-link-disabled-color: $gray-500;
+
+// Forms
+$input-font-family: "Roboto";
+
+// Alerts
+$alert-border-width: 0;
+$alert-bg-scale: -85%;
+$alert-color-scale: 20%;

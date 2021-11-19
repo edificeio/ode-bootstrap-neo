@@ -6,7 +6,7 @@ then
 fi
 
 case `uname -s` in
-  MINGW*)
+  MINGW* | Darwin*)
     USER_UID=1000
     GROUP_UID=1000
     ;;
@@ -26,11 +26,35 @@ then
   echo "sonatypePassword=$NEXUS_SONATYPE_PASSWORD" >> "?/.gradle/gradle.properties"
 fi
 
+
+# OVERRIDES VARS
+OVERRIDE_NAME="default"
+for i in "$@"
+do
+case $i in
+  -o=*|--override=*)
+  OVERRIDE_NAME="${i#*=}"
+  shift
+  ;;
+  *)
+  ;;
+esac
+done
+
+MOD_NAME=`grep "modname=" gradle.properties | sed 's/modname=//g'`
+if [ "$OVERRIDE_NAME" = "default" ];
+then
+  export OVERRIDE_MODNAME="$MOD_NAME"
+else
+  export OVERRIDE_MODNAME="$MOD_NAME-$OVERRIDE_NAME"
+fi
+
+export OVERRIDE_BUILD="build-css"
+export OVERRIDE_DIST="dist"
+export OVERRIDE_SRC="overrides/$OVERRIDE_NAME"
+# end of OVERRIDES VARS
+
 clean () {
-  #dont need to exec twice
-  if [ "$FIRST_TIME" = "false" ]; then
-    return 0
-  fi
   rm -rf node_modules
   rm -rf dist
   rm -rf build
@@ -45,11 +69,18 @@ init () {
     echo "[init] Get branch name from git..."
     BRANCH_NAME=`git branch | sed -n -e "s/^\* \(.*\)/\1/p"`
   fi
-  docker-compose run -e OVERRIDE_DIST=$OVERRIDE_DIST -e OVERRIDE_NAME=$OVERRIDE_NAME -e OVERRIDE_MODNAME=$OVERRIDE_MODNAME -e BRANCH_NAME=$BRANCH_NAME -e FRONT_TAG=$FRONT_TAG -e NEXUS_ODE_USERNAME=$NEXUS_ODE_USERNAME -e NEXUS_ODE_PASSWORD=$NEXUS_ODE_PASSWORD --rm -u "$USER_UID:$GROUP_GID" gradle sh -c "gradle generateTemplate"
-  #dont need to exec twice
-  if [ "$FIRST_TIME" = "false" ]; then
-    return 0
+  docker-compose run -e OVERRIDE_NAME=$OVERRIDE_NAME -e OVERRIDE_MODNAME=$OVERRIDE_MODNAME -e BRANCH_NAME=$BRANCH_NAME -e FRONT_TAG=$FRONT_TAG -e NEXUS_ODE_USERNAME=$NEXUS_ODE_USERNAME -e NEXUS_ODE_PASSWORD=$NEXUS_ODE_PASSWORD --rm -u "$USER_UID:$GROUP_GID" gradle sh -c "gradle generateTemplate"
+  docker-compose run --rm -u "$USER_UID:$GROUP_GID" node sh -c "npm rebuild node-sass --no-bin-links && npm install"
+}
+
+initDev () {
+  echo "[init] Get branch name from jenkins env..."
+  BRANCH_NAME=`echo $GIT_BRANCH | sed -e "s|origin/||g"`
+  if [ "$BRANCH_NAME" = "" ]; then
+    echo "[init] Get branch name from git..."
+    BRANCH_NAME=`git branch | sed -n -e "s/^\* \(.*\)/\1/p"`
   fi
+  docker-compose run -e OVERRIDE_NAME=$OVERRIDE_NAME -e OVERRIDE_MODNAME=$OVERRIDE_MODNAME -e BRANCH_NAME=$BRANCH_NAME -e FRONT_TAG=$FRONT_TAG -e NEXUS_ODE_USERNAME=$NEXUS_ODE_USERNAME -e NEXUS_ODE_PASSWORD=$NEXUS_ODE_PASSWORD --rm -u "$USER_UID:$GROUP_GID" gradle sh -c "gradle generateTemplateDev"
   docker-compose run --rm -u "$USER_UID:$GROUP_GID" node sh -c "npm rebuild node-sass --no-bin-links && npm install"
 }
 
@@ -70,20 +101,24 @@ build () {
     tmp=`echo $dir | sed 's/.\/skins\///'`
     docker-compose run -e SKIN_DIR=$SKIN_DIR -e SCSS_DIR=$SCSS_DIR -e DIST_DIR=$OVERRIDE_DIST -e SKIN=$tmp  --rm -u "$USER_UID:$GROUP_GID" node sh -c "npm run sass:build:release"
   done
-  cp node_modules/ode-bootstrap/version.txt $OVERRIDE_DIST/version.txt
+  cp node_modules/ode-bootstrap/dist/version.txt $OVERRIDE_DIST/version.txt
   VERSION=`grep "version="  gradle.properties| sed 's/version=//g'`
-  echo "ode-bootstrap-neo=$VERSION `date +'%d/%m/%Y %H:%M:%S'`" >> $OVERRIDE_DIST/version.txt
+  echo "$OVERRIDE_MODNAME=$VERSION `date +'%d/%m/%Y %H:%M:%S'`" >> $OVERRIDE_DIST/version.txt
 }
 
 watch () {
   docker-compose run --rm -u "$USER_UID:$GROUP_GID" node sh -c "npm run dev:watch"
 }
 
+lint () {
+  docker-compose run --rm -u "$USER_UID:$GROUP_GID" node sh -c "npm run dev:lint"
+}
+
+lint-fix () {
+  docker-compose run --rm -u "$USER_UID:$GROUP_GID" node sh -c "npm run dev:lint-fix"
+}
+
 publishNPM () {
-  #dont need to exec twice
-  if [ "$FIRST_TIME" = "false" ]; then
-    return 0
-  fi
   LOCAL_BRANCH=`echo $GIT_BRANCH | sed -e "s|origin/||g"`
   docker-compose run --rm -u "$USER_UID:$GROUP_GID" node sh -c "npm publish --tag $LOCAL_BRANCH"
 }
@@ -96,63 +131,51 @@ publishNexus () {
     echo "sonatypeUsername=$NEXUS_SONATYPE_USERNAME" >> "?/.gradle/gradle.properties"
     echo "sonatypePassword=$NEXUS_SONATYPE_PASSWORD" >> "?/.gradle/gradle.properties"
   fi
-  docker-compose run -e OVERRIDE_NAME=$OVERRIDE_NAME -e OVERRIDE_MODNAME=$OVERRIDE_MODNAME -e OVERRIDE_DIST=$OVERRIDE_DIST --rm -u "$USER_UID:$GROUP_GID" gradle sh -c "gradle deploymentJar fatJar publish"
+  docker-compose run -e OVERRIDE_NAME=$OVERRIDE_NAME -e OVERRIDE_MODNAME=$OVERRIDE_MODNAME --rm -u "$USER_UID:$GROUP_GID" gradle sh -c "gradle deploymentJar fatJar publish"
 }
 
 publishMavenLocal(){
-  docker-compose run -e OVERRIDE_NAME=$OVERRIDE_NAME -e OVERRIDE_MODNAME=$OVERRIDE_MODNAME  -e OVERRIDE_DIST=$OVERRIDE_DIST --rm -u "$USER_UID:$GROUP_GID" gradle sh -c "gradle deploymentJar fatJar publishToMavenLocal"
+  docker-compose run -e OVERRIDE_NAME=$OVERRIDE_NAME -e OVERRIDE_MODNAME=$OVERRIDE_MODNAME --rm -u "$USER_UID:$GROUP_GID" gradle sh -c "gradle deploymentJar fatJar publishToMavenLocal"
 }
-
 
 for param in "$@"
 do
-  export FIRST_TIME=true
-  names=($(ls -d ./scss/overrides/*))
-  for dirtyName in "${names[@]}"; do
-    name=`echo $dirtyName | sed 's/.\/scss\/overrides\///'`
-    MOD_NAME=`grep "modname="  gradle.properties| sed 's/modname=//g'`
-    export OVERRIDE_NAME="$name"
-    export OVERRIDE_SRC="overrides/$name"
-    export OVERRIDE_DIST="dist/$name"
-    export OVERRIDE_DIST_WILDCARD="dist/$name/**"
-    export OVERRIDE_BUILD="build-css/$name"
-    export OVERRIDE_MODNAME="$MOD_NAME-$name"
-    #default does not have suffix on name
-    if [ "$name" = "default" ]; then
-      export OVERRIDE_MODNAME="$MOD_NAME"
-    fi
-    echo "[$param][$name] Starting..."
-    case $param in
-      clean)
-        clean
-        ;;
-      init)
-        init
-        ;;
-      build)
-        build
-        ;;
-      install)
-        build && publishMavenLocal
-        ;;
-      publishMavenLocal)
-        publishMavenLocal
-        ;;
-      watch)
-        watch
-        ;;
-      publishNPM)
-        publishNPM
-        ;;
-      publishNexus)
-        publishNexus
-        ;;
-      *)
-        echo "Invalid argument : $param"
-    esac
-    if [ ! $? -eq 0 ]; then
-      exit 1
-    fi
-    export FIRST_TIME=false
-  done
+  echo "[$param][$OVERRIDE_NAME] Starting..."
+  case $param in
+    clean)
+      clean
+      ;;
+    init)
+      init
+      ;;
+    initDev)
+      initDev
+      ;;
+    build)
+      build
+      ;;
+    install)
+      build && publishMavenLocal
+      ;;
+    watch)
+      watch
+      ;;
+    lint)
+      lint
+      ;;
+    lint-fix)
+      lint-fix
+      ;;
+    publishNPM)
+      publishNPM
+      ;;
+    publishNexus)
+      publishNexus
+      ;;
+    *)
+      echo "Invalid argument : $param"
+  esac
+  if [ ! $? -eq 0 ]; then
+    exit 1
+  fi
 done
