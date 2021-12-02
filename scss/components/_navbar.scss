@@ -79,6 +79,15 @@ $inbox-size-icon: 20px;
             background: transparent;
             border: 0;
         }
+
+        &.conversation {
+            padding: 0;
+
+            > a {
+                display: block;
+                padding: 0.6rem 0.8rem;
+            }
+        }
     }
 
     .navbar-brand {
