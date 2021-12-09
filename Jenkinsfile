@@ -39,14 +39,11 @@ pipeline {
       }
       stage('Publish NPM') {
         steps {
-          configFileProvider([configFile(fileId: '.npmrc-infra-front', variable: 'NPMRC')]) {
-            sh 'cp $NPMRC .npmrc'
-            script {
-              if (params.OVERRIDE) {
-                sh "./build.sh --override=\"${params.OVERRIDE}\" publishNPM"
-              } else {
-                sh './build.sh publishNPM'
-              }
+          script {
+            if (params.OVERRIDE) {
+              sh "./build.sh --override=\"${params.OVERRIDE}\" publishNPM"
+            } else {
+              sh './build.sh publishNPM'
             }
           }
         }

@@ -45,5 +45,8 @@
     "stylelint": "^13.13.1",
     "prettier-stylelint": "^0.4.2",
     "stylelint-config-twbs-bootstrap": "^2.2.3"
+  },
+  "publishConfig": {
+    "registry": "https://maven.opendigitaleducation.com/nexus/repository/ode-npm/"
   }
 }
