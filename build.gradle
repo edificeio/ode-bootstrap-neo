@@ -110,7 +110,7 @@ task deploymentJar(type: Jar) {
 task fatJar(type: Jar) {
     classifier = 'fat'
     archiveName = "${modowner}~${System.env.OVERRIDE_MODNAME}~$version-$classifier.$extension"
-    includes = ["dist/**", "${modname}/**", "${System.env.OVERRIDE_MODNAME}/**"]
+    includes = ["dist/**", "conf.j2", "${modname}/**", "${System.env.OVERRIDE_MODNAME}/**"]
     from "."
 }
 
