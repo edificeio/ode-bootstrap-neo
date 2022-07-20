@@ -40,7 +40,7 @@
     "copyfiles": "^2.2.0",
     "cpr": "^3.0.1",
     "live-server": "^1.2.1",
-    "node-sass": "^4.13.1",
+    "node-sass": "4.13.1",
     "rimraf": "^3.0.0",
     "stylelint": "^13.13.1",
     "prettier-stylelint": "^0.4.2",
