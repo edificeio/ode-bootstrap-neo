@@ -1,3 +1,3 @@
-always-auth=true
-registry=https://maven.opendigitaleducation.com/nexus/repository/ode-npm-group/
-_auth=${npmToken}
+registry=https://registry.npmjs.org/
+@ode:registry=https://maven.opendigitaleducation.com/nexus/repository/ode-npm/ 
+//maven.opendigitaleducation.com/nexus/repository/ode-npm/:_auth=${npmToken}
