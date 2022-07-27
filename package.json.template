@@ -1,5 +1,5 @@
 {
-  "name": "${modname}",
+  "name": "@ode/${modname}",
   "version": "${npmVersion}",
   "description": "Neo theme by Open Digital Education\"",
   "scripts": {
