@@ -86,7 +86,7 @@ initDev () {
 }
 
 build () {
-  rm -rf build-css
+  rm -rf build-css/
   local extras=$1
   #get skins
   dirs=($(ls -d ./skins/*))
