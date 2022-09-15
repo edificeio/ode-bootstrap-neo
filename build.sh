@@ -168,6 +168,11 @@ archive() {
   tar cfzh ${FINAL_MODNAME}.tar.gz dist/* conf.j2
 }
 
+archive() {
+  echo "[archive][$OVERRIDE_NAME] Archiving dist folder and conf.j2 file..."
+  tar cfzh ${FINAL_MODNAME}.tar.gz dist/* conf.j2
+}
+
 publishNexus () {
   case "$MVN_MOD_VERSION" in
     *SNAPSHOT) nexusRepository='snapshots' ;;
