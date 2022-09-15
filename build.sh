@@ -150,10 +150,16 @@ publishNPM () {
   fi
 
   docker-compose run --rm -u "$USER_UID:$GROUP_GID" node sh -c "npm publish --tag $LOCAL_BRANCH"
+  status=$?
 
   if [ "$OVERRIDE_NAME" != "default" ];
   then
     mv package.json.orig package.json
+  fi
+
+  if [ $status != 0 ];
+  then
+    exit $status
   fi
 }
 
