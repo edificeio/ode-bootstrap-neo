@@ -28,10 +28,12 @@ pipeline {
       }
       stage('Archive') {
         steps {
-          if (params.OVERRIDE) {
-            sh "./build.sh --override=\"${params.OVERRIDE}\" archive"
-          } else {
-            sh './build.sh archive'
+          script {
+            if (params.OVERRIDE) {
+              sh "./build.sh --override=\"${params.OVERRIDE}\" archive"
+            } else {
+              sh './build.sh archive'
+            }
           }
         }
       }
@@ -52,7 +54,7 @@ pipeline {
             if (params.OVERRIDE) {
               sh "./build.sh --override=\"${params.OVERRIDE}\" publishNPM"
             } else {
-              sh './build.sh publishNPM'
+              sh "./build.sh publishNPM"
             }
           }
         }
