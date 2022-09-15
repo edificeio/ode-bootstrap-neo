@@ -1,6 +1,6 @@
 {
-  "name": "@ode/${modname}",
-  "version": "${npmVersion}",
+  "name": "@ode/ode-bootstrap-neo",
+  "version": "1.0.0-feat-produit.%generateVersion%",
   "description": "Neo theme by Open Digital Education\"",
   "scripts": {
     "sass:watch": "node-sass --source-map true -w scss/index.scss docs/index.css",
@@ -30,7 +30,7 @@
   "author": "Open Digital Education",
   "license": "ISC",
   "dependencies": {
-    "ode-bootstrap": "${odeBtVersion}"
+    "ode-bootstrap": "%odeBtVersion%"
   },
   "devDependencies": {
     "@fortawesome/fontawesome-free": "^5.15.4",
@@ -46,6 +46,7 @@
     "prettier-stylelint": "^0.4.2",
     "stylelint-config-twbs-bootstrap": "^2.2.3"
   },
+  "files": ["dist"],
   "publishConfig": {
     "registry": "https://maven.opendigitaleducation.com/nexus/repository/ode-npm/"
   }
