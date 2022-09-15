@@ -1,5 +1,9 @@
 #!/bin/bash
 
+MVN_MOD_GROUPID=`grep 'modowner=' gradle.properties | sed 's/modowner=//'`
+MVN_MOD_NAME=`grep 'modname=' gradle.properties | sed 's/modname=//'`
+MVN_MOD_VERSION=`grep 'version=' gradle.properties | sed 's/version=//'`
+
 if [ ! -e node_modules ]
 then
   mkdir node_modules
@@ -44,9 +48,9 @@ done
 MOD_NAME=`grep "modname=" gradle.properties | sed 's/modname=//g'`
 if [ "$OVERRIDE_NAME" = "default" ];
 then
-  export OVERRIDE_MODNAME="$MOD_NAME"
+  export FINAL_MODNAME="$MOD_NAME"
 else
-  export OVERRIDE_MODNAME="$MOD_NAME-$OVERRIDE_NAME"
+  export FINAL_MODNAME="$MOD_NAME-$OVERRIDE_NAME"
 fi
 
 export OVERRIDE_BUILD="build-css"
@@ -59,34 +63,50 @@ clean () {
   rm -rf dist
   rm -rf build
   rm -rf build-css
-  rm -rf deployment/*
   rm -f yarn.lock
+  rm -rf deployment
 }
 
-init () {
-  echo "[init] Get branch name from jenkins env..."
+doInit () {
+  echo "[init$1][$OVERRIDE_NAME] Get branch name from jenkins env..."
   BRANCH_NAME=`echo $GIT_BRANCH | sed -e "s|origin/||g"`
   if [ "$BRANCH_NAME" = "" ]; then
-    echo "[init] Get branch name from git..."
+    echo "[init$1][$OVERRIDE_NAME] Get branch name from git..."
     BRANCH_NAME=`git branch | sed -n -e "s/^\* \(.*\)/\1/p"`
   fi
-  docker-compose run -e OVERRIDE_NAME=$OVERRIDE_NAME -e OVERRIDE_MODNAME=$OVERRIDE_MODNAME -e BRANCH_NAME=$BRANCH_NAME -e FRONT_TAG=$FRONT_TAG -e NEXUS_ODE_USERNAME=$NEXUS_ODE_USERNAME -e NEXUS_ODE_PASSWORD=$NEXUS_ODE_PASSWORD --rm -u "$USER_UID:$GROUP_GID" gradle sh -c "gradle generateTemplate"
+  
+  echo "[init$1][$OVERRIDE_NAME] Generate deployment file from conf.deployment..."
+  mkdir -p deployment/$FINAL_MODNAME
+  cp conf.deployment deployment/$FINAL_MODNAME/conf.json.template
+  sed -i "s/%MODNAME%/${FINAL_MODNAME}/" deployment/$FINAL_MODNAME/conf.json.template
+  sed -i "s/%VERSION%/${MVN_MOD_VERSION}/" deployment/$FINAL_MODNAME/conf.json.template
+  
+  echo "[init$1][$OVERRIDE_NAME] Generate package.json from package.json.template..."
+  NPM_VERSION_SUFFIX=`date +"%Y%m%d%H%M"`
+  cp package.json.template package.json
+  sed -i "s/%generateVersion%/${NPM_VERSION_SUFFIX}/" package.json
+  
+  if [ "$1" == "Dev" ]
+  then
+    sed -i "s/%odeBtVersion%/file:\/home\/node\/ode-bootstrap/" package.json
+  else
+    sed -i "s/%odeBtVersion%/${BRANCH_NAME}/" package.json
+  fi
+
+  echo "[init$1][$OVERRIDE_NAME] Rebuild node-sass and install yarn dependencies..."
   docker-compose run --rm -u "$USER_UID:$GROUP_GID" node sh -c "npm rebuild node-sass --no-bin-links && yarn install"
+}
+
+init() {
+  doInit
 }
 
 initDev () {
-  echo "[init] Get branch name from jenkins env..."
-  BRANCH_NAME=`echo $GIT_BRANCH | sed -e "s|origin/||g"`
-  if [ "$BRANCH_NAME" = "" ]; then
-    echo "[init] Get branch name from git..."
-    BRANCH_NAME=`git branch | sed -n -e "s/^\* \(.*\)/\1/p"`
-  fi
-  docker-compose run -e OVERRIDE_NAME=$OVERRIDE_NAME -e OVERRIDE_MODNAME=$OVERRIDE_MODNAME -e BRANCH_NAME=$BRANCH_NAME -e FRONT_TAG=$FRONT_TAG -e NEXUS_ODE_USERNAME=$NEXUS_ODE_USERNAME -e NEXUS_ODE_PASSWORD=$NEXUS_ODE_PASSWORD --rm -u "$USER_UID:$GROUP_GID" gradle sh -c "gradle generateTemplateDev"
-  docker-compose run --rm -u "$USER_UID:$GROUP_GID" node sh -c "npm rebuild node-sass --no-bin-links && yarn install"
+  doInit "Dev"
 }
 
 build () {
-  local extras=$1
+  rm -rf build-css
   #get skins
   dirs=($(ls -d ./skins/*))
   #create build dir var
@@ -104,7 +124,7 @@ build () {
   done
   cp node_modules/ode-bootstrap/dist/version.txt $OVERRIDE_DIST/version.txt
   VERSION=`grep "version="  gradle.properties| sed 's/version=//g'`
-  echo "$OVERRIDE_MODNAME=$VERSION `date +'%d/%m/%Y %H:%M:%S'`" >> $OVERRIDE_DIST/version.txt
+  echo "$FINAL_MODNAME=$VERSION `date +'%d/%m/%Y %H:%M:%S'`" >> $OVERRIDE_DIST/version.txt
 }
 
 watch () {
@@ -124,9 +144,9 @@ publishNPM () {
   
   if [ "$OVERRIDE_NAME" != "default" ];
   then
-    # rename npm package name to OVERRIDE_MODNAME in package.json
+    # rename npm package name to FINAL_MODNAME in package.json
     mv package.json package.json.orig
-    sed "0,/ode-bootstrap-neo/{s|ode-bootstrap-neo|$OVERRIDE_MODNAME|}" package.json.orig > package.json
+    sed "0,/ode-bootstrap-neo/{s|ode-bootstrap-neo|$FINAL_MODNAME|}" package.json.orig > package.json
   fi
 
   docker-compose run --rm -u "$USER_UID:$GROUP_GID" node sh -c "npm publish --tag $LOCAL_BRANCH"
@@ -137,19 +157,21 @@ publishNPM () {
   fi
 }
 
+archive() {
+  echo "[archive][$OVERRIDE_NAME] Archiving dist folder and conf.j2 file..."
+  tar cfzh ${FINAL_MODNAME}.tar.gz dist/* conf.j2
+}
+
 publishNexus () {
-  if [ -e "?/.gradle" ] && [ ! -e "?/.gradle/gradle.properties" ]
-  then
-    echo "odeUsername=$NEXUS_ODE_USERNAME" > "?/.gradle/gradle.properties"
-    echo "odePassword=$NEXUS_ODE_PASSWORD" >> "?/.gradle/gradle.properties"
-    echo "sonatypeUsername=$NEXUS_SONATYPE_USERNAME" >> "?/.gradle/gradle.properties"
-    echo "sonatypePassword=$NEXUS_SONATYPE_PASSWORD" >> "?/.gradle/gradle.properties"
-  fi
-  docker-compose run -e OVERRIDE_NAME=$OVERRIDE_NAME -e OVERRIDE_MODNAME=$OVERRIDE_MODNAME --rm -u "$USER_UID:$GROUP_GID" gradle sh -c "gradle deploymentJar fatJar publish"
+  case "$MVN_MOD_VERSION" in
+    *SNAPSHOT) nexusRepository='snapshots' ;;
+    *)         nexusRepository='releases' ;;
+  esac
+  mvn deploy:deploy-file --batch-mode -DgroupId=$MVN_MOD_GROUPID -DartifactId=$FINAL_MODNAME -Dversion=$MVN_MOD_VERSION -Dpackaging=tar.gz -Dfile=${FINAL_MODNAME}.tar.gz -DrepositoryId=wse -Durl=https://maven.opendigitaleducation.com/nexus/content/repositories/$nexusRepository/
 }
 
 publishMavenLocal(){
-  docker-compose run -e OVERRIDE_NAME=$OVERRIDE_NAME -e OVERRIDE_MODNAME=$OVERRIDE_MODNAME --rm -u "$USER_UID:$GROUP_GID" gradle sh -c "gradle deploymentJar fatJar publishToMavenLocal"
+  mvn install:install-file --batch-mode -DgroupId=$MVN_MOD_GROUPID -DartifactId=$FINAL_MODNAME -Dversion=$MVN_MOD_VERSION -Dpackaging=tar.gz -Dfile=${FINAL_MODNAME}.tar.gz
 }
 
 for param in "$@"
@@ -169,7 +191,7 @@ do
       build
       ;;
     install)
-      build && publishMavenLocal
+      build && archive && publishMavenLocal
       ;;
     watch)
       watch
@@ -179,6 +201,9 @@ do
       ;;
     lint-fix)
       lint-fix
+      ;;
+    archive)
+      archive
       ;;
     publishNPM)
       publishNPM
