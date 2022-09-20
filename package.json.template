@@ -28,7 +28,7 @@
     "theme"
   ],
   "author": "Open Digital Education",
-  "license": "ISC",
+  "license": "AGPL-3.0",
   "dependencies": {
     "ode-bootstrap": "%odeBtVersion%"
   },
