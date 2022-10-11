@@ -34,7 +34,7 @@
   },
   "devDependencies": {
     "@fortawesome/fontawesome-free": "^5.15.4",
-    "bootstrap": "^5.1.3",
+    "bootstrap": "5.1.3",
     "entcore-generic-icons": "opendigitaleducation/generic-icons",
     "concurrently": "^5.0.2",
     "copyfiles": "^2.2.0",
