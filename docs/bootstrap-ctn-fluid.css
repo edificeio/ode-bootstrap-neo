@@ -46,13 +46,13 @@
 
 @media (min-width: 376px) {
     .container-fluid {
-        max-width: calc(100% - 72px)
+        max-width: calc(100% - 72px);
     }
 }
 
 @media (min-width: 768px) {
     .container-fluid {
-        max-width: calc(100% - 132px)
+        max-width: calc(100% - 132px);
     }
     .container-advanced-wrapper {
       gap: 2.4rem!important;
@@ -61,13 +61,14 @@
 
 @media (min-width: 1024px) {
     .container-fluid {
-        max-width: calc(100% - 160px)
+        max-width: calc(100% - 160px);
     }
 }
 
 @media (min-width: 1140px) {
     .container-fluid {
-        max-width: calc(100% - 200px)
+        width: calc(100% - 200px)!important;
+        max-width: 1240px;
     }
 }
 
