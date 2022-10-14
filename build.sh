@@ -93,8 +93,8 @@ doInit () {
     sed -i "s/%odeBtVersion%/${BRANCH_NAME}/" package.json
   fi
 
-  echo "[init$1][$OVERRIDE_NAME] Rebuild node-sass and install yarn dependencies..."
-  docker-compose run --rm -u "$USER_UID:$GROUP_GID" node sh -c "npm rebuild node-sass --no-bin-links && yarn install"
+  echo "[init$1][$OVERRIDE_NAME] Install yarn dependencies..."
+  docker-compose run --rm -u "$USER_UID:$GROUP_GID" node sh -c "yarn install"
 }
 
 init() {
@@ -106,7 +106,7 @@ initDev () {
 }
 
 build () {
-  rm -rf build-css
+  rm -rf build-css/
   #get skins
   dirs=($(ls -d ./skins/*))
   #create build dir var
