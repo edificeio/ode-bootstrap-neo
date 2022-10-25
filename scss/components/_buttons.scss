@@ -1,28 +1,131 @@
-.btn-primary {
-    --#{$prefix}btn-font-weight: 600;
-    --#{$prefix}btn-line-height: 2.4rem;
-    --#{$prefix}btn-bg: #FF8D2E;
-    --#{$prefix}btn-border-width: .2rem;
-    --#{$prefix}btn-border-color: transparent;
-    --#{$prefix}btn-border-radius: .8rem;
-    // hover
-    --#{$prefix}btn-hover-bg: #F17A17;
-    --#{$prefix}btn-hover-border-color: transparent;
-    // active
-    --#{$prefix}btn-active-color: #fff;
-    --#{$prefix}btn-active-bg: #F17A17;
-    --#{$prefix}btn-active-border-color: #FFC696;
+$btn-align-items: center;
+$btn-border-radius: 0.8rem;
+$btn-border-width: 0.2rem;
+$btn-box-shadow: transparent;
+$btn-disabled-opacity: 1;
+$btn-display-mode: flex;
+$btn-font-size: 1.6rem;
+$btn-font-weight: 600;
+$btn-gap: 0.8rem;
+$btn-height: 4rem;
+$btn-icon-size: 3.6rem;
+$btn-justify-content: center;
+$btn-line-height: 1;
+$btn-padding-x: 1rem;
+$btn-padding-y: 0.8rem;
+
+// Default btn
+.btn {
+  --#{$prefix}btn-active-box-shadow-color: #{$btn-box-shadow};
+  --#{$prefix}btn-align-items: #{$btn-align-items};
+  --#{$prefix}btn-border-radius: #{$btn-border-radius};
+  --#{$prefix}btn-border-width: #{$btn-border-width};
+  --#{$prefix}btn-box-shadow: #{$btn-box-shadow};
+  --#{$prefix}btn-disabled-opacity: #{$btn-disabled-opacity};
+  --#{$prefix}btn-display-mode: #{$btn-display-mode};
+  --#{$prefix}btn-focus-bg: #{$primary};
+  --#{$prefix}btn-focus-border-color: #{$orange-200};
+  --#{$prefix}btn-focus-box-shadow-color: #{$btn-box-shadow};
+  --#{$prefix}btn-focus-color: #{$white};
+  --#{$prefix}btn-font-size: #{$btn-font-size};
+  --#{$prefix}btn-font-weight: #{$btn-font-weight};
+  --#{$prefix}btn-gap: #{$btn-gap};
+  --#{$prefix}btn-height: #{$btn-height};
+  --#{$prefix}btn-justify-content: #{$btn-justify-content};
+  --#{$prefix}btn-line-height: #{$btn-line-height};
+  --#{$prefix}btn-padding-x: #{$btn-padding-x};
+  --#{$prefix}btn-padding-y: #{$btn-padding-y};
 }
 
-.btn-outline-primary {
-    --#{$prefix}btn-bg: #FFF;
-    --#{$prefix}btn-border-color: #FF8D2E;
-    // hover
-    --#{$prefix}btn-hover-bg: #FFF;
-    --#{$prefix}btn-hover-color: #F17A17;
-    --#{$prefix}btn-hover-border-color: #F17A17;
-    // active
-    --#{$prefix}btn-active-color: #F17A17;
-    --#{$prefix}btn-active-bg: #FFEFE3;
-    --#{$prefix}btn-active-border-color: #F17A17;
+// Filled Button
+@each $value, $key in $button-colors {
+  .btn-#{$value} {
+    @include variantButtonFilled(
+      map-get($key, "base"),
+      map-get($key, "dark"),
+      map-get($key, "light"),
+      map-get($key, "text"),
+      map-get($key, "box-shadow")
+    );
+  }
+
+  @if ($value == "tertiary") {
+    .btn-#{$value} {
+      &:disabled,
+      &.disabled {
+        --#{$prefix}btn-bg: #{$gray-200};
+        --#{$prefix}btn-color: #{$gray-600};
+      }
+    }
+  }
+}
+
+// Outlined Button
+@each $value, $key in $button-colors {
+  @if ($value == "tertiary") {
+    .btn-outline-#{$value} {
+      --#{$prefix}btn-active-bg: #{$gray-200};
+      --#{$prefix}btn-active-border-color: #{$gray-600};
+      --#{$prefix}btn-active-box-shadow-color: transparent;
+      --#{$prefix}btn-active-color: #{$gray-900};
+      --#{$prefix}btn-bg: transparent;
+      --#{$prefix}btn-border-color: #{$gray-500};
+      --#{$prefix}btn-border-radius: 0.8rem;
+      --#{$prefix}btn-border-width: 0.1rem;
+      --#{$prefix}btn-color: #{$gray-800};
+      --#{$prefix}btn-disabled-bg: transparent;
+      --#{$prefix}btn-disabled-border-color: #{$gray-400};
+      --#{$prefix}btn-disabled-color: #{$gray-500};
+      --#{$prefix}btn-disabled-opacity: 1;
+      --#{$prefix}btn-focus-bg: #{$gray-200};
+      --#{$prefix}btn-focus-border-color: #{$gray-600};
+      --#{$prefix}btn-focus-box-shadow-color: transparent;
+      --#{$prefix}btn-focus-color: #{$gray-800};
+      --#{$prefix}btn-hover-bg: transparent;
+      --#{$prefix}btn-hover-border-color: #{$gray-500};
+      --#{$prefix}btn-hover-color: #{$gray-800};
+    }
+  } @else {
+    .btn-outline-#{$value} {
+      @include variantButtonOutlined(
+        map-get($key, "base"),
+        map-get($key, "dark"),
+        map-get($key, "pale"),
+        map-get($key, "light"),
+        map-get($key, "box-shadow")
+      );
+    }
+  }
+}
+
+// Ghost Button
+@each $value, $key in $button-colors {
+  .btn-ghost-#{$value} {
+    @include variantButtonGhost(
+      map-get($key, "base"),
+      map-get($key, "dark"),
+      map-get($key, "light"),
+      map-get($key, "box-shadow")
+    );
+
+    @if ($value == "tertiary") {
+      --#{$prefix}btn-color: #{$gray-800};
+
+      &:hover,
+      &.hover {
+        --#{$prefix}btn-hover-color: #{$gray-800};
+      }
+
+      &:first-child:active,
+      &:active,
+      &.active {
+        --#{$prefix}btn-active-color: #{$black};
+      }
+
+      &:disabled,
+      &.disabled {
+        --#{$prefix}btn-disabled-color: #{$gray-500};
+      }
+    }
+  }
 }

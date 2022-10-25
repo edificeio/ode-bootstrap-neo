@@ -1,0 +1,64 @@
+$button-colors: (
+  "primary": (
+    base: $primary,
+    pale: $primary-100,
+    light: $primary-200,
+    text: $white,
+    dark: $primary-900,
+    "box-shadow": transparent,
+  ),
+  "secondary": (
+    base: $secondary,
+    pale: $secondary-100,
+    light: $secondary-200,
+    text: $white,
+    dark: $secondary-900,
+    "box-shadow": transparent,
+  ),
+  "tertiary": (
+    base: $tertiary,
+    pale: $gray-200,
+    light: $gray-300,
+    text: $gray-800,
+    dark: $gray-400,
+    "box-shadow": transparent,
+  ),
+  "danger": (
+    base: $danger,
+    pale: $danger-100,
+    light: $danger-200,
+    text: $white,
+    dark: $danger-900,
+    "box-shadow": transparent,
+  ),
+);
+
+/* $outlined-colors: map.merge($light-weights, $heavy-weights)
+
+$outlined-colors: (
+  "primary": (
+    base: $primary,
+    pale: $primary-100,
+    light: $primary-200,
+    text: $white,
+    dark: $primary-900,
+    "box-shadow": transparent,
+  ),
+  "secondary": (
+    base: $secondary,
+    pale: $secondary-100,
+    light: $secondary-200,
+    text: $white,
+    dark: $secondary-900,
+    "box-shadow": transparent,
+  ),
+  "tertiary": (
+    base: $gray-500,
+    pale: $gray-600,
+    light: $gray-300,
+    text: $gray-800,
+    dark: $gray-400,
+    "box-shadow": transparent,
+  ),
+);
+ */

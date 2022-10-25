@@ -1,0 +1,85 @@
+@mixin variantButtonFilled(
+  $color: $primary,
+  $dark: $primary-900,
+  $light: $primary-200,
+  $text: $white,
+  $box-shadow: transparent
+) {
+  --#{$prefix}btn-active-bg: #{$dark};
+  --#{$prefix}btn-active-border-color: #{$light};
+  --#{$prefix}btn-active-box-shadow-color: #{$box-shadow};
+  --#{$prefix}btn-active-color: #{$text};
+  --#{$prefix}btn-bg: #{$color};
+  --#{$prefix}btn-border-color: #{$color};
+  --#{$prefix}btn-color: #{$text};
+  --#{$prefix}btn-disabled-bg: #{$light};
+  --#{$prefix}btn-disabled-border-color: #{$light};
+  --#{$prefix}btn-disabled-color: #{$text};
+  --#{$prefix}btn-focus-bg: #{$color};
+  --#{$prefix}btn-focus-border-color: #{$dark};
+  --#{$prefix}btn-focus-box-shadow-color: #{$box-shadow};
+  --#{$prefix}btn-focus-color: #{$text};
+  --#{$prefix}btn-hover-bg: #{$dark};
+  --#{$prefix}btn-hover-border-color: #{$dark};
+  --#{$prefix}btn-hover-color: #{$text};
+}
+
+@mixin variantButtonOutlined(
+  $color: $primary,
+  $dark: $primary-900,
+  $pale: $primary-100,
+  $light: $primary-200,
+  $box-shadow: transparent
+) {
+  --#{$prefix}btn-active-bg: #{$pale};
+  --#{$prefix}btn-active-border-color: #{$dark};
+  --#{$prefix}btn-active-box-shadow-color: transparent;
+  --#{$prefix}btn-active-color: #{$dark};
+  --#{$prefix}btn-bg: transparent;
+  --#{$prefix}btn-border-color: #{$color};
+  --#{$prefix}btn-border-radius: 0.8rem;
+  --#{$prefix}btn-border-width: 0.1rem;
+  --#{$prefix}btn-color: #{$color};
+  --#{$prefix}btn-disabled-bg: transparent;
+  --#{$prefix}btn-disabled-border-color: #{$light};
+  --#{$prefix}btn-disabled-color: #{$light};
+  --#{$prefix}btn-disabled-opacity: 1;
+  --#{$prefix}btn-focus-bg: #{$pale};
+  --#{$prefix}btn-focus-border-color: #{$color};
+  --#{$prefix}btn-focus-box-shadow-color: transparent;
+  --#{$prefix}btn-focus-color: #{$primary};
+  --#{$prefix}btn-hover-bg: transparent;
+  --#{$prefix}btn-hover-border-color: #{$dark};
+  --#{$prefix}btn-hover-color: #{$dark};
+}
+
+@mixin variantButtonGhost(
+  $color: $primary,
+  $dark: $primary-900,
+  $light: $primary-200,
+  $box-shadow: transparent
+) {
+  --#{$prefix}btn-active-bg: transparent;
+  --#{$prefix}btn-active-border-color: transparent;
+  --#{$prefix}btn-active-box-shadow-color: transparent;
+  --#{$prefix}btn-active-color: #{$dark};
+  --#{$prefix}btn-bg: transparent;
+  --#{$prefix}btn-border-color: transparent;
+  --#{$prefix}btn-border-radius: 0.8rem;
+  --#{$prefix}btn-border-width: 0;
+  --#{$prefix}btn-color: #{$color};
+  --#{$prefix}btn-disabled-bg: transparent;
+  --#{$prefix}btn-disabled-border-color: transparent;
+  --#{$prefix}btn-disabled-color: #{$light};
+  --#{$prefix}btn-disabled-opacity: 1;
+  --#{$prefix}btn-focus-bg: transparent;
+  --#{$prefix}btn-focus-border-color: transparent;
+  --#{$prefix}btn-focus-box-shadow-color: transparent;
+  --#{$prefix}btn-focus-color: #{$color};
+  --#{$prefix}btn-font-weight: 700;
+  --#{$prefix}btn-height: 4rem;
+  --#{$prefix}btn-hover-bg: transparent;
+  --#{$prefix}btn-hover-border-color: transparent;
+  --#{$prefix}btn-hover-color: #{$dark};
+  --#{$prefix}btn-line-height: 1;
+}
