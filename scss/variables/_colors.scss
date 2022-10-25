@@ -1,5 +1,4 @@
 // Color System
-
 $white: #fff !default;
 $black: #000 !default;
 
@@ -82,11 +81,35 @@ $light: $gray-200 !default;
 $medium: $gray-500 !default;
 $dark: $gray-800 !default;
 
+// Main colors variants
+$primary-100: $orange-100;
+$primary-200: $orange-200;
+$primary-900: $orange-900;
+$secondary-100: $blue-100;
+$secondary-200: $blue-200;
+$secondary-900: $blue-900;
+
 // Support Palette
 $success: #7dbf85 !default;
 $info: #4bafd5 !default;
 $warning: #f59700 !default;
 $danger: #e13a3a !default;
+
+$danger-900: #d12a2a !default;
+$danger-200: #f3a6a6 !default;
+$danger-100: #ffe9e9 !default;
+
+$warning-900: #e68d00 !default;
+$warning-200: #f2c987 !default;
+$warning-100: #fdecd2 !default;
+
+$success-900: #70a977 !default;
+$success-200: #bbe1bf !default;
+$success-100: #daf1dd !default;
+
+$info-900: #3499bf !default;
+$info-200: #acd6e6 !default;
+$info-100: #d7e8ee !default;
 
 // Navbar Colors
 $navbar-color-100: #4bafd5 !default;

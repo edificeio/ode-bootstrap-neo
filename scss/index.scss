@@ -3,6 +3,7 @@
 
 /* VARIABLES */
 @import "variables/";
+@import "mixins/";
 
 /* OVERRIDE */
 @import "variables";
@@ -19,4 +20,4 @@
 
 /* COMPONENTS */
 // Contient tous nos composants visuels, simple ou complexe
-@import "components/"
+@import "components/";
