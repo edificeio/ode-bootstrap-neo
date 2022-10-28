@@ -63,6 +63,7 @@ clean () {
   rm -rf dist
   rm -rf build
   rm -rf build-css
+  rm -f package.json
   rm -f yarn.lock
   rm -rf deployment
 }
@@ -88,7 +89,7 @@ doInit () {
   
   if [ "$1" == "Dev" ]
   then
-    sed -i "s/%odeBtVersion%/file:\/home\/node\/ode-bootstrap/" package.json
+    sed -i "s/%odeBtVersion%/file:..\/ode-bootstrap\//" package.json
   else
     sed -i "s/%odeBtVersion%/${BRANCH_NAME}/" package.json
   fi
@@ -128,15 +129,19 @@ build () {
 }
 
 watch () {
-  docker-compose run --rm -u "$USER_UID:$GROUP_GID" node sh -c "npm run dev:watch"
+  docker-compose run --rm -u "$USER_UID:$GROUP_GID" node sh -c "yarn watch"
+}
+
+watchReact () {
+  docker-compose run --rm -u "$USER_UID:$GROUP_GID" node sh -c "yarn watch:react"
 }
 
 lint () {
-  docker-compose run --rm -u "$USER_UID:$GROUP_GID" node sh -c "npm run dev:lint"
+  docker-compose run --rm -u "$USER_UID:$GROUP_GID" node sh -c "yarn dev:lint"
 }
 
 lint-fix () {
-  docker-compose run --rm -u "$USER_UID:$GROUP_GID" node sh -c "npm run dev:lint-fix"
+  docker-compose run --rm -u "$USER_UID:$GROUP_GID" node sh -c "yarn dev:lint-fix"
 }
 
 publishNPM () {
@@ -206,6 +211,9 @@ do
       ;;
     watch)
       watch
+      ;;
+    watchReact)
+      watchReact
       ;;
     lint)
       lint

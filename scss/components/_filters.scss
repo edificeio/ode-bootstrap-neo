@@ -1,8 +1,8 @@
 //REmplacer par un bouton custom
 //https://getbootstrap.com/docs/5.0/components/buttons/#mixins
 .filters {
-    .btn:hover {
-        color: $secondary;
-        background-color: rgba($secondary, 0.1);
-    }
+  .btn:hover {
+    color: $secondary;
+    background-color: rgba($secondary, 0.1);
+  }
 }

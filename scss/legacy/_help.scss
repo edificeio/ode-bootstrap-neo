@@ -1,145 +1,146 @@
 help {
-    font-size: 1.6rem;
-    line-height: normal;
+  font-size: 1.6rem;
+  line-height: normal;
+  color: black;
+
+  i {
+    color: $white !important;
+  }
+
+  p {
+    margin: 1.6rem 0;
     color: black;
+  }
 
-    i {
-        color: $white !important;
-    }
+  h2 {
+    color: $secondary;
+  }
 
-    p {
-        margin: 1.6rem 0;
-        color: black;
+  .lightbox {
+    z-index: 10002;
+
+    div.content {
+      width: 920px;
     }
+  }
+
+  .burger-button {
+    display: none;
+  }
+
+  #TOC {
+    float: left;
+    width: 20%;
+    margin-right: 5%;
+
+    ul {
+      border-left: 5px solid $primary;
+
+      li {
+        display: block;
+        margin-block-start: 1em;
+        margin-block-end: 1em;
+        margin-inline-start: 0;
+        margin-inline-end: 0;
+
+        a {
+          color: $secondary;
+
+          &:hover {
+            color: $primary;
+          }
+        }
+      }
+    }
+  }
+
+  img {
+    max-width: 100%;
+  }
+
+  .lightbox > div.content div.section,
+  div.section {
+    width: 70%;
+    margin-left: 25%;
 
     h2 {
-        color: $secondary;
-    } 
-
-    section.lightbox {
-        z-index: 10002;
-
-        div.content {
-            width: 920px;
-        }
+      width: 100%;
+      margin-bottom: 2rem;
+      color: $secondary;
     }
-
-    .burger-button {
-        display: none;
-    }
-
-    #TOC {
-        float: left;
-        width: 20%;
-        margin-right: 5%;
-
-        ul {
-            border-left: 5px solid $primary;
-
-            li {
-                display: block;
-                margin-block-start: 1em;
-                margin-block-end: 1em;
-                margin-inline-start: 0;
-                margin-inline-end: 0;
-
-                a {
-                    color: $secondary;
-
-                    &:hover {
-                        color: $primary;
-                    }
-                }
-            }
-        }
-    }
-
-    img {
-        max-width: 100%;
-    }
-
-    section.lightbox>div.content div.section,
-    div.section {
-        width: 70%;
-        margin-left: 25%;
-
-        h2 {
-            width: 100%;
-            margin-bottom: 2rem;
-            color: $secondary;
-        }
-    }
+  }
 }
 
 @include media-breakpoint-down(sm) {
-    help {
-        #TOC {
-            float: none;
-            width: auto;
-            margin: 2rem;
+  help {
+    #TOC {
+      float: none;
+      width: auto;
+      margin: 2rem;
 
-            ul {
-                position: absolute;
-                display: none;
-                margin-top: 4rem;
-                margin-left: -2rem;
-                background-color: $white;
-                box-shadow: .1rem .1rem 1rem rgba(0, 0, 0, .25);
-            }
+      ul {
+        position: absolute;
+        display: none;
+        margin-top: 4rem;
+        margin-left: -2rem;
+        background-color: $white;
+        box-shadow: 0.1rem 0.1rem 1rem rgba(0, 0, 0, 0.25);
+      }
 
-            ul li {
-                padding: 1.5rem;
-                margin: 0;
-                // margin-left: -4rem;
-                border-bottom: .1rem solid #ddd;
+      ul li {
+        padding: 1.5rem;
+        margin: 0;
+        // margin-left: -4rem;
 
-                &:hover {
-                    background-color: $orange;
+        border-bottom: 0.1rem solid #ddd;
 
-                    a {
-                        color: $white;
-                    }
-                }
-            }
-        }
+        &:hover {
+          background-color: $orange;
 
-        .burger-button {
-            position: absolute;
-            display: block;
-            width: 40px;
-            height: 40px;
-            padding: 0;
-            line-height: 40px;
+          a {
             color: $white;
-            text-align: center;
-            cursor: pointer;
-            background-color: $orange;
-            border: none;
-            border-radius: $border-radius;
-
-            .burger-icon {
-                font-family: "generic-icons";
-                font-style: normal;
-
-                &::before {
-                    content: "\e956";
-                }
-            }
+          }
         }
-
-        .burger-menu.active #TOC ul {
-            display: block;
-            padding: 0;
-        }
-
-        section.lightbox>div.content div.section {
-            width: auto;
-            margin: 25px 0 0;
-
-            h2 {
-                width: auto;
-                margin-left: 50px;
-            }
-        }
+      }
     }
+
+    .burger-button {
+      position: absolute;
+      display: block;
+      width: 40px;
+      height: 40px;
+      padding: 0;
+      line-height: 40px;
+      color: $white;
+      text-align: center;
+      cursor: pointer;
+      background-color: $orange;
+      border: none;
+      border-radius: $border-radius;
+
+      .burger-icon {
+        font-family: generic-icons;
+        font-style: normal;
+
+        &::before {
+          content: "\e956";
+        }
+      }
+    }
+
+    .burger-menu.active #TOC ul {
+      display: block;
+      padding: 0;
+    }
+
+    .lightbox > div.content div.section {
+      width: auto;
+      margin: 25px 0 0;
+
+      h2 {
+        width: auto;
+        margin-left: 50px;
+      }
+    }
+  }
 }

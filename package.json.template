@@ -1,31 +1,31 @@
 {
   "name": "ode-bootstrap-neo",
-  "version": "1.1.4-feat-produit.%generateVersion%",
+  "version": "1.1.4-feat-explorer.%generateVersion%",
   "description": "Neo theme by Open Digital Education\"",
   "scripts": {
-    "sass:watch": "sass --source-map -w scss/index.scss docs/index.css",
-    "sass:build:debug": "sass --load-path=node_modules/ --source-map scss/index.scss docs/index.css",
-    "sass:build:release": "sass --load-path=node_modules/ --style=compressed ${SKIN_DIR}/$SKIN/theme.scss ${SKIN_DIR}/$SKIN/theme.css && cpr ${SKIN_DIR}/$SKIN/ ${DIST_DIR}/skins/$SKIN/ -o",
-    "dev:dependencies": "cpr node_modules/ode-bootstrap/assets/ docs/ -o",
-    "dev:prepare": "npm run sass:build:debug && npm run dev:dependencies && cpr assets/ docs/ -o",
-    "dev:watch": "npm run dev:prepare && concurrently  \" npm run sass:watch \" \" npm run dev:serve  \" ",
-    "dev:serve": "live-server --open=docs/ --ignore=**/node_modules/**,**/dist/**,**/package.json,**/.git/**",
-    "dev:lint": "stylelint scss/**/*.scss || echo \"lint faild for some file(s).\"",
     "dev:lint-fix": "stylelint scss/**/*.scss --fix || echo \"lint faild for some file(s).\"",
+    "dev:lint": "stylelint scss/**/*.scss || echo \"lint faild for some file(s).\"",
+    "format:check": "npx prettier --check .",
+    "format:write": "npx prettier --write .",
+    "format": "npm run format:write && npm run format:check",
+    "release:build": "npm run release:prepare && SKIN=default npm run sass:build:release",
     "release:clean": "rimraf ${DIST_DIR}",
     "release:dependencies": "cpr node_modules/ode-bootstrap/assets/ ${DIST_DIR}/ -o",
     "release:prepare": "npm run release:clean && npm run release:dependencies && cpr assets/ ${DIST_DIR}/ -o",
-    "release:build": "npm run release:prepare && SKIN=default npm run sass:build:release"
+    "sass:build:release": "sass --load-path=node_modules/ --style=compressed ${SKIN_DIR}/$SKIN/theme.scss ${SKIN_DIR}/$SKIN/theme.css && cpr ${SKIN_DIR}/$SKIN/ ${DIST_DIR}/skins/$SKIN/ -o",
+    "watch": "sass --watch --load-path=node_modules/ --no-source-map scss/index.scss ../ode-dev-server/assets/themes/ode-bootstrap-neo/skins/default/theme.css",
+    "watch:react": "sass --watch --load-path=node_modules/ --no-source-map scss/index.scss ../ode-react-ui/docs/storybook/public/themes/ode-bootstrap-neo.css"
   },
   "repository": {
     "type": "git",
     "url": "git@github.com:opendigitaleducation/ode-bootstrap-neo.git"
   },
   "keywords": [
+    "Bootstrap",
+    "Framework CSS",
     "NEO",
     "ODE",
-    "bootstrap",
-    "theme"
+    "Theme"
   ],
   "author": "Open Digital Education",
   "license": "AGPL-3.0",
@@ -34,17 +34,17 @@
   },
   "devDependencies": {
     "@fortawesome/fontawesome-free": "6.2.0",
+    "@popperjs/core":"2.11.6",
     "bootstrap": "5.2.2",
-    "entcore-generic-icons": "opendigitaleducation/generic-icons",
     "concurrently": "7.4.0",
     "copyfiles": "2.4.1",
     "cpr": "3.0.1",
-    "live-server": "1.2.2",
-    "sass": "1.55.0",
+    "entcore-generic-icons": "opendigitaleducation/generic-icons",
+    "postcss": "8.4.18",
     "rimraf": "3.0.2",
-    "stylelint": "14.13.0",
-    "prettier-stylelint": "0.4.2",
-    "stylelint-config-twbs-bootstrap": "6.0.0"
+    "sass": "1.55.0",
+    "stylelint-config-twbs-bootstrap": "6.0.0",
+    "stylelint": "14.13.0"
   },
   "files": ["dist"]
 }
