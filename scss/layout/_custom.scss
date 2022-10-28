@@ -7,10 +7,11 @@
 main.main {
   --bs-gutter-x: 2rem;
   --bs-gutter-y: 2rem;
+
   max-width: 1700px;
-  margin: 0 auto;
   padding-top: var(--bs-gutter-y);
   padding-bottom: var(--bs-gutter-y);
+  margin: 0 auto;
 }
 
 @include media-breakpoint-down(sm) {

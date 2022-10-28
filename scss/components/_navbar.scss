@@ -4,16 +4,17 @@ $inbox-size-icon: 20px;
   [data-state="disabled"] {
     display: none !important;
   }
+
   & {
+    width: 100%;
     padding-top: 0;
     padding-bottom: 0;
-    width: 100%;
-    box-shadow: 0 0.2rem 0.5rem rgba($black, 0.4);
     background: linear-gradient(
       to bottom right,
       $navbar-color-100,
       $navbar-color-200
     );
+    box-shadow: 0 0.2rem 0.5rem rgba($black, 0.4);
   }
 
   .container {
@@ -22,14 +23,14 @@ $inbox-size-icon: 20px;
   }
 
   .navbar-title {
-    color: $white;
     font-size: 1.6rem;
+    color: $white;
   }
 
   .navbar-nav {
     display: inline-flex;
-    align-items: center;
     flex-direction: row;
+    align-items: center;
 
     .dropdown-menu {
       position: absolute;
@@ -37,12 +38,12 @@ $inbox-size-icon: 20px;
   }
 
   .nav-link {
-    cursor: pointer;
+    align-items: center;
     padding: 0.6rem 0.8rem;
     font-size: 3rem;
-    border-radius: 0;
-    align-items: center;
+    cursor: pointer;
     border-bottom: 3px solid transparent;
+    border-radius: 0;
 
     > a {
       color: inherit;
@@ -61,12 +62,12 @@ $inbox-size-icon: 20px;
 
         .new-mails {
           position: absolute;
-          display: inline-block;
           top: -0.8rem;
           right: -1rem;
+          display: inline-block;
           width: $inbox-size-icon;
           height: $inbox-size-icon;
-          font: bold 1.2rem "Roboto";
+          font: 700 1.2rem Roboto;
           line-height: 20px;
           text-align: center;
           background: $primary;
@@ -102,6 +103,7 @@ $inbox-size-icon: 20px;
     .logo {
       display: inline-block;
       // height: 44px;
+
       height: 64px;
     }
   }
@@ -143,6 +145,7 @@ $inbox-size-icon: 20px;
 
       [class*="ic-"] {
         // margin-right: 1rem;
+
         font-size: 2rem;
         vertical-align: middle;
       }
