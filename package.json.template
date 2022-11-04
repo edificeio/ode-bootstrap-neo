@@ -46,12 +46,5 @@
     "prettier-stylelint": "^0.4.2",
     "stylelint-config-twbs-bootstrap": "^2.2.3"
   },
-<<<<<<< HEAD
-  "files": ["dist"]
-=======
   "files": ["dist"],
-  "publishConfig": {
-    "registry": "https://maven.opendigitaleducation.com/nexus/repository/ode-npm/"
-  }
->>>>>>> 6c7d7dd (chore: #WB-893, remove gradle from scripts)
 }
