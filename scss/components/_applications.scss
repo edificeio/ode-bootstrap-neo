@@ -138,7 +138,7 @@ $application-icon-size-sm: 60px;
     border-radius: $border-radius-lg;
     box-shadow: 3px 3px 15px rgba(0, 0, 0, 0.05);
 
-    @extend .mt-3;
+    @extend .mt-2;
 
     h2 {
       font-size: 1.2rem;
@@ -148,7 +148,7 @@ $application-icon-size-sm: 60px;
   &-list,
   &-connector {
     h2 {
-      @extend .mb-3;
+      @extend .mb-2;
 
       flex-basis: 100%;
       font-size: 1.2rem;
