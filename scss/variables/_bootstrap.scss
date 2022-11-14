@@ -12,10 +12,14 @@ $box-shadow-sm: 0 0.125rem 0.25rem rgba($gray-900, 0.075);
 $box-shadow: 0 0.5rem 1rem rgba($gray-900, 0.15);
 $box-shadow-lg: 0 1rem 3rem rgba($gray-900, 0.175);
 
+$font-size-base: 1.6rem !default;
+
 $component-active-bg: $secondary;
 
 // Typography
 $font-family-sans-serif: "Roboto", sans-serif;
+$font-family-primary: "Comfortaa", cursive;
+$font-family-secondary: $font-family-sans-serif;
 
 // Buttons + Forms
 $input-btn-font-family: $font-family-sans-serif;
