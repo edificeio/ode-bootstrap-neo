@@ -1,5 +1,5 @@
 {
-  "name": "@ode/ode-bootstrap-neo",
+  "name": "ode-bootstrap-neo",
   "version": "1.0.0-dev-produit.%generateVersion%",
   "description": "Neo theme by Open Digital Education\"",
   "scripts": {
