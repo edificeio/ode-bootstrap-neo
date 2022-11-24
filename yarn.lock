@@ -1758,7 +1758,7 @@ encodeurl@~1.0.2:
 >>>>>>> f505e39 (docs(design tokens): #WB-1059, add spacings tokens)
 entcore-generic-icons@opendigitaleducation/generic-icons:
   version "1.5.1"
-  resolved "https://codeload.github.com/opendigitaleducation/generic-icons/tar.gz/72101ad0205752fca68e340c1d4d0def427e1198"
+  resolved "https://codeload.github.com/opendigitaleducation/generic-icons/tar.gz/8b9676f043ba5e0ae14a26c72f03d73e95d013f0"
 
 <<<<<<< HEAD
 entities@^1.1.1:
@@ -4138,6 +4138,7 @@ normalize-path@^3.0.0, normalize-path@~3.0.0:
   integrity sha512-6eZs5Ls3WtCisHWp9S2GUy8dqkpGi4BVSz3GaqiE6ezub0512ESztXUwUB6C6IKbQkY2Pnb/mD4WYojCRwcwLA==
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 normalize-range@^0.1.2:
   version "0.1.2"
   resolved "https://registry.yarnpkg.com/normalize-range/-/normalize-range-0.1.2.tgz#2d10c06bdfd312ea9777695a4d28439456b75942"
@@ -4272,6 +4273,11 @@ on-headers@~1.0.2:
     bootstrap "5.2.2"
     entcore-generic-icons opendigitaleducation/generic-icons
 >>>>>>> e5bb578 (feat(ds): #WB2-124, fonts token)
+=======
+"ode-bootstrap@link:../ode-bootstrap":
+  version "0.0.0"
+  uid ""
+>>>>>>> a9b9dae (feat: #WB2-129, icons and app title component)
 
 once@^1.3.0:
   version "1.4.0"
