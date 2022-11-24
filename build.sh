@@ -89,7 +89,7 @@ doInit () {
   
   if [ "$1" == "Dev" ]
   then
-    sed -i "s/%odeBtVersion%/file:..\/ode-bootstrap\//" package.json
+    sed -i "s/%odeBtVersion%/link:..\/ode-bootstrap\//" package.json
   else
     sed -i "s/%odeBtVersion%/${BRANCH_NAME}/" package.json
   fi
