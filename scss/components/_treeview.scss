@@ -1,0 +1,5 @@
+$selected-background-color: $blue-100;
+
+.treeview {
+  --#{$prefix}selected-background-color: #{$selected-background-color};
+}
