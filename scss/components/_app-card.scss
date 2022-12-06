@@ -1,5 +1,5 @@
 $appbar-icon-color: $secondary;
 
-/* .app-title {
+.app-card:is(.app-card-react) {
   --#{$prefix}appbar-icon-color: #{$appbar-icon-color};
-} */
+}
