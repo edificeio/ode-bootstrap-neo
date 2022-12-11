@@ -1,5 +1,24 @@
 //Ref page : https://github.com/twbs/bootstrap/blob/main/scss/_variables.scss
 
+// Grid breakpoints
+$grid-breakpoints: (
+  xs: 0,
+  sm: 376px,
+  md: 768px,
+  lg: 1024px,
+  xl: 1280px,
+  xxl: 1400px,
+);
+
+// Container Max Widths
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1140px,
+  xxl: 1320px,
+);
+
 // Body
 $body-bg: $gray-200;
 $text-color: $gray-800;
@@ -12,7 +31,7 @@ $box-shadow-sm: 0 0.125rem 0.25rem rgba($gray-900, 0.075);
 $box-shadow: 0 0.5rem 1rem rgba($gray-900, 0.15);
 $box-shadow-lg: 0 1rem 3rem rgba($gray-900, 0.175);
 
-$font-size-base: 1.6rem !default;
+$font-size-base: 1.6rem;
 
 $component-active-bg: $secondary;
 

@@ -1,80 +1,45 @@
-# ODE Bootsrap Neo
+# ODE Bootsrap NEO
 
-Ce thème NEO est une déclinaison du framework ODE Bootstrap.
+ODE Bootstrap NEO is a theme based on ODE bootstrap framework.
+This theme is customisable through variables, so it is possible to create a new theme based on this one.
 
-## Installation
+## Install
 
-Installer Git et lancer la commande suivante dans un terminal
+Install it by cloning the repository:
 ```
-git clone git@code.web-education.net:ode/ode-bootstrap-neo.git
-```
-
-Lancer la tâche init:
-```
-./build.sh init
+git clone https://github.com/opendigitaleducation/ode-bootstrap-neo.git
+./build.sh clean initDev
 ```
 
-### Lancer le mode développeur
+## Dev
 
-Lancer la commande suivante:
+Working with `ode-dev-server`, you can watch the SCSS files to copy them directly in the right folder.
+
 ```
-./build.sh install watch
-```
-
-Un serveur web démarre et l'URL s'affiche en console (généralement http://localhost:8080/doc).
-Toutes les modifications sur le code source sont détectées et entrainent un rafraichissement de la page.
-
-### Lancer un build
-
-Lancer la commande suivante:
-```
-./build.sh build
+yarn watch
 ```
 
-Le css minifié est généré dans le dossier "dist".
+Working on `ode-react-ui` library, you can watch the SCSS files to copy them inside Storybook folder.
 
-### Initier un environnement de développement incluant une version locale de ode-bootstrap
-
-Git-cloner ode-bootstrap et ode-bootstrap-neo côte-à-côte dans un même sous-dossier (par exemple : projects/ode-boostrap et projects/ode-boostrap-neo)
-
-Lancer un build de ode-bootstrap (voir la documentation)
-
-Puis lancer la commande suivante:
 ```
-./build.sh clean initDev build
+yarn watch:react
 ```
 
-Le css minifié est généré dans le dossier "dist".
+## Components
 
-## Linter SCSS
+To override styles we use SCSS and CSS Variables.
 
-Lancer le linter sur les fichers scss du projet
-```
-./build.sh lint
-```
+```scss
+// ode-bootstrap-neo > _treeview.scss
 
-Lancer le linter sur les fichers scss du projet et corriger certains problèmes de mise en forme
-```
-./build.sh lint-fix
-```
+$selected-background-color: $blue-100;
 
-Pour un affichage des problèmes en temps réel, installer le plugin VSC stylelint.
-Pour une correction du formattage à l'enregistrement, ajouter au ficher de configuration settings.json:
-```
-"editor.codeActionsOnSave": {
-    "source.fixAll.stylelint": true
-},
+.treeview {
+  --#{$prefix}selected-background-color: #{$selected-background-color};
+}
 ```
 
-## Documentation
-
-Une documentation contenant l'ensemble de nos composants est disponible dans [ici](doc/index.html).
-
-Voici la liste des variables personnalisables:
-
-TODO
-
-## Surcharges
+<!-- ## Surcharges
 ### Comment créer une surcharge ?
 
 1. Créer un dossier avec le nom de la surcharge dans le dossier `scss/overrides`, exemple : `scss/overrides/cg77`
@@ -121,4 +86,4 @@ exemple avec la surcharge "cg77" :
   "waitDeploy": true,
   "extension":"-fat.jar"
 }
-```
+``` -->
