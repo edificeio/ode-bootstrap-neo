@@ -14,7 +14,7 @@
     "release:prepare": "npm run release:clean && npm run release:dependencies && cpr assets/ ${DIST_DIR}/ -o",
     "sass:build:release": "sass --load-path=node_modules/ --style=compressed ${SKIN_DIR}/$SKIN/theme.scss ${SKIN_DIR}/$SKIN/theme.css && cpr ${SKIN_DIR}/$SKIN/ ${DIST_DIR}/skins/$SKIN/ -o",
     "watch": "sass --watch --style compressed --load-path=node_modules/ --no-source-map scss/index.scss ../ode-dev-server/assets/themes/ode-bootstrap-neo/skins/default/theme.css",
-    "watch:react": "sass --watch --style compressed --load-path=node_modules/ --no-source-map scss/index.scss ../ode-react-ui/docs/storybook/public/themes/ode-bootstrap-neo.css"
+    "watch:react": "sass --watch --style compressed --load-path=node_modules/ --no-source-map scss/index.scss ../ode-react-ui/docs/public/themes/ode-bootstrap-neo.css"
   },
   "repository": {
     "type": "git",
