@@ -11,6 +11,8 @@ git clone https://github.com/opendigitaleducation/ode-bootstrap-neo.git
 ./build.sh clean initDev
 ```
 
+> initDev command will create a symlink with ode-bootstrap
+
 ## Dev
 
 Working with `ode-dev-server`, you can watch the SCSS files to copy them directly in the right folder.
