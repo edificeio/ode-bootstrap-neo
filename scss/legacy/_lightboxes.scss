@@ -228,7 +228,7 @@ section.tiny-lightbox div.content {
 .lightbox > .content {
   padding: 10px;
   background: $white;
-  box-shadow: 2px 2px 24px $shadow;
+  box-shadow: $box-shadow-lg;
 
   h2,
   h2:first-child {
@@ -513,9 +513,9 @@ section.tiny-lightbox div.content {
   height: 100vh;
   content: " ";
   background: transparent;
-  background: url(../../img/illustrations/logo.png) 23px 0 no-repeat $shadow;
+  background: url(../../img/illustrations/logo.png) no-repeat $box-shadow-lg;
   background-size: contain;
-  box-shadow: 0 2px 5px $shadow;
+  box-shadow: $box-shadow-sm;
 }
 
 .lightbox-view {
