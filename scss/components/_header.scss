@@ -36,7 +36,8 @@ $dropdown-divider-margin-y: 0;
     }
 
     .navbar-title {
-      font-size: 1.6rem;
+      font-size: 1.4rem;
+      font-weight: 700;
       color: $white;
     }
 
@@ -54,20 +55,21 @@ $dropdown-divider-margin-y: 0;
       .logo {
         height: 30px;
       }
+      
       @include media-breakpoint-up(md) {
         padding: 0;
         margin-right: 0;
 
         .logo {
           display: inline-block;
-          height: 64px;
+          height: 52px;
         }
       }
     }
 
     .nav-link {
       align-self: self-end;
-      padding: 1rem 0.5rem;
+      padding: $spacer-8;
       align-items: center;
       cursor: pointer;
       border-bottom: 3px solid transparent;
@@ -84,7 +86,7 @@ $dropdown-divider-margin-y: 0;
       }
 
       @include media-breakpoint-up(md) {
-        padding: 1.5rem 0.8rem;
+        padding: $spacer-16 $spacer-8;
         svg {
           width: 3rem;
           height: 3rem;
