@@ -51,6 +51,7 @@
   --#{$prefix}btn-hover-bg: transparent;
   --#{$prefix}btn-hover-border-color: #{$dark};
   --#{$prefix}btn-hover-color: #{$dark};
+  --#{$prefix}btn-active-box-shadow-width: 0;
 }
 
 @mixin variantButtonGhost(
