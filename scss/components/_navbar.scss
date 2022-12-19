@@ -2,153 +2,151 @@
 
 $inbox-size-icon: 20px;
 
-.header:not(.header-react) {
-  .navbar {
-    [data-state="disabled"] {
-      display: none !important;
+.navbar {
+  [data-state="disabled"] {
+    display: none !important;
+  }
+
+  & {
+    width: 100%;
+    padding-top: 0;
+    padding-bottom: 0;
+    background: linear-gradient(
+      to bottom right,
+      $navbar-color-100,
+      $navbar-color-200
+    );
+    box-shadow: 0 0.2rem 0.5rem rgba($black, 0.4);
+  }
+
+  .container {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  .navbar-title {
+    font-size: 1.6rem;
+    color: $white;
+  }
+
+  .navbar-nav {
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+
+    .dropdown-menu {
+      position: absolute;
     }
+  }
 
-    & {
-      width: 100%;
-      padding-top: 0;
-      padding-bottom: 0;
-      background: linear-gradient(
-        to bottom right,
-        $navbar-color-100,
-        $navbar-color-200
-      );
-      box-shadow: 0 0.2rem 0.5rem rgba($black, 0.4);
+  .navbar-brand {
+    .logo {
+      height: 30px;
     }
+    @include media-breakpoint-up(md) {
+      padding: 0;
+      margin-right: 0;
 
-    .container {
-      padding-top: 0;
-      padding-bottom: 0;
-    }
-
-    .navbar-title {
-      font-size: 1.6rem;
-      color: $white;
-    }
-
-    .navbar-nav {
-      display: inline-flex;
-      flex-direction: row;
-      align-items: center;
-
-      .dropdown-menu {
-        position: absolute;
-      }
-    }
-
-    .navbar-brand {
       .logo {
-        height: 30px;
+        display: inline-block;
+        height: 64px;
       }
-      @include media-breakpoint-up(md) {
-        padding: 0;
-        margin-right: 0;
+    }
+  }
 
-        .logo {
-          display: inline-block;
-          height: 64px;
-        }
+  .nav-link {
+    align-self: self-end;
+    padding: 1rem 0.5rem;
+    font-size: 2.3rem;
+
+    i {
+      &.ic-help {
+        font-size: 2.3rem;
+      }
+    }
+  }
+
+  .application-title {
+    display: block;
+    width: calc(100% - 300px); //A REVOIR
+    color: $white;
+  }
+
+  .dropdown {
+    &-toggle {
+      &::after {
+        color: $white;
       }
     }
 
-    .nav-link {
-      align-self: self-end;
-      padding: 1rem 0.5rem;
-      font-size: 2.3rem;
+    [class*="ic-"] {
+      font-size: 2rem;
+      vertical-align: middle;
+    }
+  }
 
-      i {
-        &.ic-help {
-          font-size: 2.3rem;
-        }
-      }
+  .nav-link {
+    align-items: center;
+    padding: 1.5rem 0.8rem;
+    font-size: 3rem;
+    cursor: pointer;
+    border-bottom: 3px solid transparent;
+    border-radius: 0;
+
+    > a {
+      color: inherit;
     }
 
-    .application-title {
-      display: block;
-      width: calc(100% - 300px); //A REVOIR
+    i {
       color: $white;
-    }
 
-    .dropdown {
-      &-toggle {
-        &::after {
-          color: $white;
-        }
+      &.ic-help {
+        font-size: 3.2rem;
       }
 
-      [class*="ic-"] {
-        font-size: 2rem;
-        vertical-align: middle;
-      }
-    }
-
-    .nav-link {
-      align-items: center;
-      padding: 1.5rem 0.8rem;
-      font-size: 3rem;
-      cursor: pointer;
-      border-bottom: 3px solid transparent;
-      border-radius: 0;
-
-      > a {
-        color: inherit;
-      }
-
-      i {
+      &.mail {
+        position: relative;
         color: $white;
 
-        &.ic-help {
-          font-size: 3.2rem;
-        }
-
-        &.mail {
-          position: relative;
-          color: $white;
-
-          .new-mails {
-            position: absolute;
-            top: -0.8rem;
-            right: -1rem;
-            display: inline-block;
-            width: $inbox-size-icon;
-            height: $inbox-size-icon;
-            font: 700 1.2rem $font-family-sans-serif;
-            line-height: 20px;
-            text-align: center;
-            background: $primary;
-            border-radius: 50%;
-          }
+        .new-mails {
+          position: absolute;
+          top: -0.8rem;
+          right: -1rem;
+          display: inline-block;
+          width: $inbox-size-icon;
+          height: $inbox-size-icon;
+          font: 700 1.2rem $font-family-sans-serif;
+          line-height: 20px;
+          text-align: center;
+          background: $primary;
+          border-radius: 50%;
         }
       }
+    }
 
-      &:hover {
-        border-bottom: 3px solid $primary;
+    &:hover {
+      border-bottom: 3px solid $primary;
+    }
+
+    &.dropdown-toggle {
+      padding: 0.6rem 0.3em 0;
+      background: transparent;
+      border: 0;
+    }
+
+    &.conversation {
+      padding: 0;
+
+      > a {
+        display: block;
+        padding: 0.6rem 0.8rem;
       }
+    }
 
-      &.dropdown-toggle {
-        padding: 0.6rem 0.3em 0;
-        background: transparent;
-        border: 0;
-      }
-
-      &.conversation {
-        padding: 0;
-
-        > a {
-          display: block;
-          padding: 0.6rem 0.8rem;
-        }
-      }
-
-      @include media-breakpoint-up(md) {
-        svg {
-          width: 3rem;
-          height: 3rem;
-        }
+    @include media-breakpoint-up(md) {
+      svg {
+        width: 3rem;
+        height: 3rem;
       }
     }
   }
