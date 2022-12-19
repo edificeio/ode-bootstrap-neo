@@ -1,5 +1,9 @@
 // Quickly modify global styling by enabling or disabling optional features
 @import "options";
+
+$base-url: "../../";
+$fonts-path: "../../fonts";
+
 @import "colors";
 @import "bootstrap";
 @import "buttons";
