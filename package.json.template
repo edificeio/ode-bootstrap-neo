@@ -1,6 +1,6 @@
 {
   "name": "ode-bootstrap-neo",
-  "version": "1.0.0-feature-react.%generateVersion%",
+  "version": "1.0.0-feat-explorer.%generateVersion%",
   "description": "Open Digital Education NEO Theme",
   "scripts": {
     "dev:lint-fix": "stylelint scss/**/*.scss --fix || echo \"lint faild for some file(s).\"",
