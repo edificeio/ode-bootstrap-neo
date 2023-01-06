@@ -1,21 +1,5 @@
-$btn-align-items: center;
-$btn-border-radius: 0.8rem;
-$btn-border-width: 0.1rem;
-$btn-box-shadow: transparent;
-$btn-disabled-opacity: 1;
-$btn-display-mode: flex;
-$btn-font-size: 1.6rem;
-$btn-font-weight: 600;
-$btn-gap: 0.8rem;
-$btn-icon-size: 3.6rem;
-$btn-justify-content: center;
-$btn-padding-x: 1.6rem;
-$btn-padding-y: 0.8rem;
-$btn-search-bg: $blue-100;
-$btn-search-focus-border-color: $blue-200;
-
 // Default btn
-.btn {
+/* .btn {
   --#{$prefix}btn-active-box-shadow-color: #{$btn-box-shadow};
   --#{$prefix}btn-align-items: #{$btn-align-items};
   --#{$prefix}btn-border-radius: #{$btn-border-radius};
@@ -35,7 +19,7 @@ $btn-search-focus-border-color: $blue-200;
   --#{$prefix}btn-padding-y: #{$btn-padding-y};
   --#{$prefix}btn-search-bg: #{$btn-search-bg};
   --#{$prefix}btn-search-focus-border-color: #{$btn-search-focus-border-color};
-}
+} */
 
 // Filled Button
 @each $value, $key in $button-colors {
