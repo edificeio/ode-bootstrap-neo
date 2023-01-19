@@ -1,26 +1,3 @@
-// Default btn
-/* .btn {
-  --#{$prefix}btn-active-box-shadow-color: #{$btn-box-shadow};
-  --#{$prefix}btn-align-items: #{$btn-align-items};
-  --#{$prefix}btn-border-radius: #{$btn-border-radius};
-  --#{$prefix}btn-border-width: #{$btn-border-width};
-  --#{$prefix}btn-box-shadow: #{$btn-box-shadow};
-  --#{$prefix}btn-disabled-opacity: #{$btn-disabled-opacity};
-  --#{$prefix}btn-display-mode: #{$btn-display-mode};
-  --#{$prefix}btn-focus-bg: #{$primary};
-  --#{$prefix}btn-focus-border-color: #{$orange-200};
-  --#{$prefix}btn-focus-box-shadow-color: #{$btn-box-shadow};
-  --#{$prefix}btn-focus-color: #{$white};
-  --#{$prefix}btn-font-size: #{$btn-font-size};
-  --#{$prefix}btn-font-weight: #{$btn-font-weight};
-  --#{$prefix}btn-gap: #{$btn-gap};
-  --#{$prefix}btn-justify-content: #{$btn-justify-content};
-  --#{$prefix}btn-padding-x: #{$btn-padding-x};
-  --#{$prefix}btn-padding-y: #{$btn-padding-y};
-  --#{$prefix}btn-search-bg: #{$btn-search-bg};
-  --#{$prefix}btn-search-focus-border-color: #{$btn-search-focus-border-color};
-} */
-
 // Filled Button
 @each $value, $key in $button-colors {
   .btn-#{$value} {
