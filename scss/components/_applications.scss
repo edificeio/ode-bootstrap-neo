@@ -208,7 +208,7 @@ $application-icon-size-sm: 60px;
 }
 
 // Add class for applications 1D
-.application:not(.application-react) {
+.application {
   &.nom-appli {
     &::after {
       position: absolute;
