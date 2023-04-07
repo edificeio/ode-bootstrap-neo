@@ -67,6 +67,8 @@ $dropdown-divider-margin-y: 0;
         height: 30px;
         object-fit: contain;
         object-position: left;
+        max-width: 100%;
+        width: auto;
       }
 
       @include media-breakpoint-up(md) {
