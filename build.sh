@@ -95,7 +95,7 @@ doInit () {
   fi
 
   echo "[init$1][$OVERRIDE_NAME] Install yarn dependencies..."
-  docker-compose run --rm -u "$USER_UID:$GROUP_GID" node sh -c "yarn install"
+  docker-compose run --rm -u "$USER_UID:$GROUP_GID" node sh -c "yarn install --production=false"
 }
 
 init() {
