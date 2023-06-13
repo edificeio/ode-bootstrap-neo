@@ -1,15 +1,26 @@
 /* TODO : must be common to all pages with the new BS5 Toast */
-infotip.info {
+infotip.info,
+ode-infotip {
+  position: fixed;
   right: 10px !important;
   bottom: 10px !important;
   width: 450px !important;
   padding: 20px;
   border-radius: 0;
-  // box-shadow: 0 0.5rem 1rem rgb(33 37 41 / 15%);
 }
 
-infotip.info {
+infotip.info,
+ode-infotip .toast {
+  position: relative;
+  color: #5b6472;
+  text-align: left;
+  border-radius: 0;
+  background: #e9ebef;
+  border-left: 10px solid #4bafd5;
+  margin: 5px 0 15px;
   background: linear-gradient(to right, #f0f9fc, #dceff7);
+  border: 1px solid #c7e6f2;
+  color: #237797;
 }
 
 infotip .close {
@@ -20,7 +31,7 @@ infotip .close {
   width: 1em;
   height: 1em;
   padding: 0.25em;
-  color: #000;
+  color: $gray-800;
   cursor: pointer;
   background: transparent
     url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23000'%3e%3cpath d='M.293.293a1 1 0 011.414 0L8 6.586 14.293.293a1 1 0 111.414 1.414L9.414 8l6.293 6.293a1 1 0 01-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 01-1.414-1.414L6.586 8 .293 1.707a1 1 0 010-1.414z'/%3e%3c/svg%3e")
@@ -30,40 +41,71 @@ infotip .close {
   opacity: 0.5;
 }
 
+ode-infotip .toast-header {
+  width: 2em;
+  height: 2em;
+  position: absolute;
+  top: 0;
+  right: 0;
+  box-sizing: content-box;
+  background-color: transparent;
+  border: 0;
+}
+
+ode-infotip .btn-close {
+  width: 2em;
+  height: 2em;
+  padding: 0.25em;
+  color: $gray-800;
+  cursor: pointer;
+  background: transparent
+    url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23000'%3e%3cpath d='M.293.293a1 1 0 011.414 0L8 6.586 14.293.293a1 1 0 111.414 1.414L9.414 8l6.293 6.293a1 1 0 01-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 01-1.414-1.414L6.586 8 .293 1.707a1 1 0 010-1.414z'/%3e%3c/svg%3e")
+    center/1em auto no-repeat;
+  border: 0;
+  border-radius: 6px;
+  opacity: 0.5;
+}
+
+ode-infotip .toast-body {
+  margin-top: 2rem;
+}
+
 infotip.info p {
   margin-top: 20px;
-  color: var(--bs-third);
+  color: #237797;
+  font-size: 1.4rem;
 }
 
 infotip .right-magnet {
   padding-top: 1.5rem;
-  margin-top: 1.5rem;
+  margin-top: 1.6rem;
   text-align: right;
 }
 
 infotip button {
-  padding: 0.475rem 1.2rem;
+  padding: 0.4rem 1.2rem;
   border: 0;
+  font-size: 1.4rem;
   border-radius: 0;
 }
 
 infotip button.cancel {
   margin-right: 1rem;
-  color: #000;
+  color: #ff8500;
   background-color: #e9ecef;
   border-color: #e9ecef;
 }
 
 infotip button.cancel:hover {
-  color: var(--bs-primary);
+  color: #ff8500;
   background-color: #e9ecef;
   border-color: #e9ecef;
 }
 
 infotip button:not(.cancel) {
   color: #fff;
-  background-color: var(--bs-primary);
-  border-color: var(--bs-primary);
+  background-color: #ff8500;
+  border-color: #ff8500;
 }
 
 infotip button:not(.cancel):hover {
