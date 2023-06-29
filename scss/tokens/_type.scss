@@ -3,3 +3,20 @@
 
 // Comfortaa Font
 @import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap");
+
+// Baskerville
+@import url("https://fonts.googleapis.com/css2?family=Baskervville:ital@0;1&display=swap");
+
+// Inconsolata
+@import url("https://fonts.googleapis.com/css2?family=Inconsolata:wght@200;300;400;500;600;700;800;900&display=swap");
+
+// Handlee
+@import url("https://fonts.googleapis.com/css2?family=Handlee&display=swap");
+
+// Open Dyslexic
+@font-face {
+  font-family: "OpenDyslexic";
+  font-style: normal;
+  font-weight: normal;
+  src: url(#{$fonts-path}/dyslexic/OpenDyslexic.woff);
+}
