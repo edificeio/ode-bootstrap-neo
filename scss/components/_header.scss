@@ -34,7 +34,7 @@ $dropdown-divider-margin-y: 0;
   .navbar {
     --#{$prefix}navbar-padding-y: #{$navbar-padding-y};
     width: 100%;
-    background: linear-gradient(to bottom, $primary, darken($primary, 5%));
+    background: linear-gradient(to bottom, $secondary, darken($secondary, 5%));
     box-shadow: 0 0.2rem 0.5rem rgba($black, 0.4);
 
     .container {
