@@ -14,3 +14,5 @@ build/
 build-css/
 .DS_Store
 *.lock
+.pnpm-store
+pnpm-lock.yaml
