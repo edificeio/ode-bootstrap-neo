@@ -65,6 +65,7 @@ clean () {
   rm -rf build-css
   rm -f package.json
   rm -f yarn.lock
+  rm -f pnpm-lock.yaml
   rm -rf deployment
 }
 
@@ -94,8 +95,8 @@ doInit () {
     sed -i "s/%odeBtVersion%/${BRANCH_NAME}/" package.json
   fi
 
-  echo "[init$1][$OVERRIDE_NAME] Install yarn dependencies..."
-  docker-compose run --rm -u "$USER_UID:$GROUP_GID" node sh -c "yarn install --production=false"
+  echo "[init$1][$OVERRIDE_NAME] Install pnpm dependencies..."
+  docker-compose run --rm -u "$USER_UID:$GROUP_GID" node sh -c "pnpm install"
 }
 
 init() {
@@ -118,10 +119,10 @@ build () {
   cp -R skins $SKIN_DIR
   cp -R scss $SCSS_DIR
   cp -R scss/$OVERRIDE_SRC/* $OVERRIDE_BUILD/scss/
-  docker-compose run -e SKIN_DIR=$SKIN_DIR -e SCSS_DIR=$SCSS_DIR -e DIST_DIR=$OVERRIDE_DIST --rm -u "$USER_UID:$GROUP_GID" node sh -c "npm run release:prepare"
+  docker-compose run -e SKIN_DIR=$SKIN_DIR -e SCSS_DIR=$SCSS_DIR -e DIST_DIR=$OVERRIDE_DIST --rm -u "$USER_UID:$GROUP_GID" node sh -c "pnpm run release:prepare"
   for dir in "${dirs[@]}"; do
     tmp=`echo $dir | sed 's/.\/skins\///'`
-    docker-compose run -e SKIN_DIR=$SKIN_DIR -e SCSS_DIR=$SCSS_DIR -e DIST_DIR=$OVERRIDE_DIST -e SKIN=$tmp  --rm -u "$USER_UID:$GROUP_GID" node sh -c "npm run sass:build:release"
+    docker-compose run -e SKIN_DIR=$SKIN_DIR -e SCSS_DIR=$SCSS_DIR -e DIST_DIR=$OVERRIDE_DIST -e SKIN=$tmp  --rm -u "$USER_UID:$GROUP_GID" node sh -c "pnpm run sass:build:release"
   done
   cp node_modules/ode-bootstrap/dist/version.txt $OVERRIDE_DIST/version.txt
   VERSION=`grep "version="  gradle.properties| sed 's/version=//g'`
@@ -129,19 +130,19 @@ build () {
 }
 
 watch () {
-  docker-compose run --rm -u "$USER_UID:$GROUP_GID" node sh -c "yarn watch"
+  docker-compose run --rm -u "$USER_UID:$GROUP_GID" node sh -c "pnpm run watch"
 }
 
 watchReact () {
-  docker-compose run --rm -u "$USER_UID:$GROUP_GID" node sh -c "yarn watch:react"
+  docker-compose run --rm -u "$USER_UID:$GROUP_GID" node sh -c "pnpm run watch:react"
 }
 
 lint () {
-  docker-compose run --rm -u "$USER_UID:$GROUP_GID" node sh -c "yarn dev:lint"
+  docker-compose run --rm -u "$USER_UID:$GROUP_GID" node sh -c "pnpm run dev:lint"
 }
 
 lint-fix () {
-  docker-compose run --rm -u "$USER_UID:$GROUP_GID" node sh -c "yarn dev:lint-fix"
+  docker-compose run --rm -u "$USER_UID:$GROUP_GID" node sh -c "pnpm run dev:lint-fix"
 }
 
 publishNPM () {
@@ -154,7 +155,7 @@ publishNPM () {
     sed "0,/ode-bootstrap-neo/{s|ode-bootstrap-neo|$FINAL_MODNAME|}" package.json.orig > package.json
   fi
 
-  docker-compose run --rm -u "$USER_UID:$GROUP_GID" node sh -c "npm publish --tag $LOCAL_BRANCH"
+  docker-compose run --rm -u "$USER_UID:$GROUP_GID" node sh -c "pnpm publish --no-git-checks --tag $LOCAL_BRANCH"
   status=$?
 
   if [ "$OVERRIDE_NAME" != "default" ];
