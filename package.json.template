@@ -1,6 +1,6 @@
 {
   "name": "ode-bootstrap-neo",
-  "version": "1.2.2-dev.%generateVersion%",
+  "version": "1.2.2",
   "description": "Neo theme by Open Digital Education\"",
   "scripts": {
     "dev:lint-fix": "stylelint scss/**/*.scss --fix || echo \"lint faild for some file(s).\"",
