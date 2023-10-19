@@ -1,9 +1,5 @@
 #!/bin/bash
 
-MVN_MOD_GROUPID=`grep 'modowner=' gradle.properties | sed 's/modowner=//'`
-MVN_MOD_NAME=`grep 'modname=' gradle.properties | sed 's/modname=//'`
-MVN_MOD_VERSION=`grep 'version=' gradle.properties | sed 's/version=//'`
-
 if [ ! -e node_modules ]
 then
   mkdir node_modules
@@ -22,15 +18,6 @@ case `uname -s` in
     fi
 esac
 
-if [ -e "?/.gradle" ] && [ ! -e "?/.gradle/gradle.properties" ]
-then
-  echo "odeUsername=$NEXUS_ODE_USERNAME" > "?/.gradle/gradle.properties"
-  echo "odePassword=$NEXUS_ODE_PASSWORD" >> "?/.gradle/gradle.properties"
-  echo "sonatypeUsername=$NEXUS_SONATYPE_USERNAME" >> "?/.gradle/gradle.properties"
-  echo "sonatypePassword=$NEXUS_SONATYPE_PASSWORD" >> "?/.gradle/gradle.properties"
-fi
-
-
 # OVERRIDES VARS
 OVERRIDE_NAME="default"
 for i in "$@"
@@ -45,7 +32,7 @@ case $i in
 esac
 done
 
-MOD_NAME=`grep "modname=" gradle.properties | sed 's/modname=//g'`
+MOD_NAME=ode-bootstrap-neo
 if [ "$OVERRIDE_NAME" = "default" ];
 then
   export FINAL_MODNAME="$MOD_NAME"
@@ -76,12 +63,6 @@ doInit () {
     echo "[init$1][$OVERRIDE_NAME] Get branch name from git..."
     BRANCH_NAME=`git branch | sed -n -e "s/^\* \(.*\)/\1/p"`
   fi
-  
-  echo "[init$1][$OVERRIDE_NAME] Generate deployment file from conf.deployment..."
-  mkdir -p deployment/$FINAL_MODNAME
-  cp conf.deployment deployment/$FINAL_MODNAME/conf.json.template
-  sed -i "s/%MODNAME%/${FINAL_MODNAME}/" deployment/$FINAL_MODNAME/conf.json.template
-  sed -i "s/%VERSION%/${MVN_MOD_VERSION}/" deployment/$FINAL_MODNAME/conf.json.template
   
   echo "[init$1][$OVERRIDE_NAME] Generate package.json from package.json.template..."
   NPM_VERSION_SUFFIX=`date +"%Y%m%d%H%M"`
@@ -125,8 +106,7 @@ build () {
     docker-compose run -e SKIN_DIR=$SKIN_DIR -e SCSS_DIR=$SCSS_DIR -e DIST_DIR=$OVERRIDE_DIST -e SKIN=$tmp  --rm -u "$USER_UID:$GROUP_GID" node sh -c "pnpm run sass:build:release"
   done
   cp node_modules/ode-bootstrap/dist/version.txt $OVERRIDE_DIST/version.txt
-  VERSION=`grep "version="  gradle.properties| sed 's/version=//g'`
-  echo "$FINAL_MODNAME=$VERSION `date +'%d/%m/%Y %H:%M:%S'`" >> $OVERRIDE_DIST/version.txt
+  echo "$FINAL_MODNAME `date +'%d/%m/%Y %H:%M:%S'`" >> $OVERRIDE_DIST/version.txt
 }
 
 watch () {
