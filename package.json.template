@@ -18,7 +18,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:opendigitaleducation/ode-bootstrap-neo.git"
+    "url": "git@github.com:edificeio/ode-bootstrap-neo.git"
   },
   "keywords": [
     "Bootstrap",
@@ -27,10 +27,10 @@
     "ODE",
     "Theme"
   ],
-  "author": "Open Digital Education",
+  "author": "Edifice",
   "license": "AGPL-3.0",
   "dependencies": {
-    "ode-bootstrap": "master"
+    "ode-bootstrap": "dev-integration"
   },
   "devDependencies": {
     "@fortawesome/fontawesome-free": "6.2.0",
@@ -39,7 +39,7 @@
     "concurrently": "7.4.0",
     "copyfiles": "2.4.1",
     "cpr": "3.0.1",
-    "entcore-generic-icons": "opendigitaleducation/generic-icons",
+    "entcore-generic-icons": "edificeio/generic-icons",
     "postcss": "8.4.18",
     "rimraf": "3.0.2",
     "sass": "1.55.0",
