@@ -150,3 +150,14 @@ $help-button-icon-size: 40px;
     }
   }
 }
+
+.modal-widget {
+  @include media-breakpoint-down(md) {
+    .modal {
+      position: absolute;
+    }
+    .modal-backdrop {
+      position: absolute;
+    }
+  }
+}
