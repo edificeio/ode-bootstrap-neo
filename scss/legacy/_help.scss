@@ -1,40 +1,31 @@
-$black: #222;
-$help-button-icon-size: 40px;
-
-.modal-help {
+help {
   font-size: 1.6rem;
   line-height: normal;
-  color: $black;
+  color: black;
 
-  .modal-dialog {
-    max-width: 920px;
-  }
-
-  .modal-body {
-    > p {
-      margin: 0;
-    }
-  }
-
-  #la-page-daccueil {
-    margin-top: -2rem;
-
-    @include media-breakpoint-down(sm) {
-      margin-top: -4rem;
-    }
+  i {
+    color: $white !important;
   }
 
   p {
     margin: 1.6rem 0;
-    color: $black;
+    color: black;
+  }
+
+  h2 {
+    color: $secondary;
+  }
+
+  .lightbox {
+    z-index: 10002;
+
+    div.content {
+      width: 920px;
+    }
   }
 
   .burger-button {
     display: none;
-  }
-
-  h2 {
-    font-size: 2rem;
   }
 
   #TOC {
@@ -47,7 +38,10 @@ $help-button-icon-size: 40px;
 
       li {
         display: block;
-        margin: 1em 0;
+        margin-block-start: 1em;
+        margin-block-end: 1em;
+        margin-inline-start: 0;
+        margin-inline-end: 0;
 
         a {
           color: $secondary;
@@ -64,7 +58,8 @@ $help-button-icon-size: 40px;
     max-width: 100%;
   }
 
-  .section {
+  .lightbox > div.content div.section,
+  div.section {
     width: 70%;
     margin-left: 25%;
 
@@ -74,8 +69,10 @@ $help-button-icon-size: 40px;
       color: $secondary;
     }
   }
+}
 
-  @include media-breakpoint-down(sm) {
+@include media-breakpoint-down(sm) {
+  help {
     #TOC {
       float: none;
       width: auto;
@@ -84,7 +81,6 @@ $help-button-icon-size: 40px;
       ul {
         position: absolute;
         display: none;
-        padding: 0;
         margin-top: 4rem;
         margin-left: -2rem;
         background-color: $white;
@@ -94,13 +90,14 @@ $help-button-icon-size: 40px;
       ul li {
         padding: 1.5rem;
         margin: 0;
+        // margin-left: -4rem;
+
         border-bottom: 0.1rem solid #ddd;
 
         &:hover {
           background-color: $orange;
 
           a {
-            display: block;
             color: $white;
           }
         }
@@ -110,10 +107,10 @@ $help-button-icon-size: 40px;
     .burger-button {
       position: absolute;
       display: block;
-      width: $help-button-icon-size;
-      height: $help-button-icon-size;
+      width: 40px;
+      height: 40px;
       padding: 0;
-      line-height: $help-button-icon-size;
+      line-height: 40px;
       color: $white;
       text-align: center;
       cursor: pointer;
@@ -131,33 +128,19 @@ $help-button-icon-size: 40px;
       }
     }
 
-    .burger-menu {
-      &.active {
-        #TOC ul {
-          display: block;
-        }
-      }
+    .burger-menu.active #TOC ul {
+      display: block;
+      padding: 0;
     }
 
-    .section {
+    .lightbox > div.content div.section {
       width: auto;
-      margin: 2rem 0 0;
+      margin: 25px 0 0;
 
       h2 {
         width: auto;
-        margin-left: 5rem;
+        margin-left: 50px;
       }
-    }
-  }
-}
-
-.modal-widget {
-  @include media-breakpoint-down(md) {
-    .modal {
-      position: absolute;
-    }
-    .modal-backdrop {
-      position: absolute;
     }
   }
 }
