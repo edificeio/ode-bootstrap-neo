@@ -10,3 +10,5 @@ services:
       - ~/.pnpm:/.pnpm
       - ~/.npm:/.npm
       - ~/.cache:/.cache
+      - ../recette:/home/node/recette
+      - ../ode-bootstrap:/home/node/ode-bootstrap
