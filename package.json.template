@@ -13,7 +13,7 @@
     "release:dependencies": "cpr node_modules/ode-bootstrap/assets/ ${DIST_DIR}/ -o",
     "release:prepare": "pnpm run release:clean && pnpm run release:dependencies && cpr assets/ ${DIST_DIR}/ -o",
     "sass:build:release": "sass --load-path=node_modules/ --style=compressed ${SKIN_DIR}/$SKIN/theme.scss ${SKIN_DIR}/$SKIN/theme.css && cpr ${SKIN_DIR}/$SKIN/ ${DIST_DIR}/skins/$SKIN/ -o",
-    "watch": "sass --watch --style compressed --load-path=node_modules/ --no-source-map scss/index.scss ../ode-dev-server/assets/themes/ode-bootstrap-neo/skins/default/theme.css",
+    "watch": "sass --watch --style compressed --load-path=node_modules/ --no-source-map scss/index.scss ../recette/assets/themes/ode-bootstrap-neo/skins/default/theme.css",
     "watch:react": "sass --watch --style compressed --load-path=node_modules/ --no-source-map scss/index.scss ../ode-react-ui/public/themes/ode-bootstrap-neo.css"
   },
   "repository": {

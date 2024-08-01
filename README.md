@@ -15,7 +15,7 @@ git clone https://github.com/opendigitaleducation/ode-bootstrap-neo.git
 
 ## Dev
 
-Working with `ode-dev-server`, you can watch the SCSS files to copy them directly in the right folder.
+Working with `recette`, you can watch the SCSS files to copy them directly in the right folder.
 
 ```
 yarn watch
