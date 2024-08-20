@@ -7,6 +7,25 @@ ode-infotip {
   width: 450px !important;
   padding: 20px;
   border-radius: 0;
+
+  @include media-breakpoint-down(md) {
+    width: auto !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    z-index: 99999 !important;
+    margin-bottom: 0 !important;
+
+    .toast {
+      max-width: inherit;
+      margin-bottom: 0 !important;
+    }
+  }
+}
+
+ode-infotip {
+  @include media-breakpoint-down(md) {
+    padding: 0!important;
+  }
 }
 
 infotip.info,

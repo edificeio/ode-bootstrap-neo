@@ -1,4 +1,3 @@
-version: "3"
 services:
   node:
     image: "opendigitaleducation/node:18-alpine-pnpm"
@@ -10,3 +9,5 @@ services:
       - ~/.pnpm:/.pnpm
       - ~/.npm:/.npm
       - ~/.cache:/.cache
+      - ../ode-bootstrap:/home/node/ode-bootstrap
+      - ~/.gitconfig:/home/node/.gitconfig
