@@ -11,3 +11,4 @@ services:
       - ~/.cache:/.cache
       - ../ode-bootstrap:/home/node/ode-bootstrap
       - ~/.gitconfig:/home/node/.gitconfig
+      - ../recette:/home/node/recette
