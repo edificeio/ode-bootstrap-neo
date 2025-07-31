@@ -1,6 +1,6 @@
 {
   "name": "ode-bootstrap-neo",
-  "version": "1.4.3-%branch%.%generateVersion%",
+  "version": "1.4.4",
   "description": "Neo theme by Edifice",
   "scripts": {
     "dev:lint-fix": "stylelint scss/**/*.scss --fix || echo \"lint faild for some file(s).\"",
