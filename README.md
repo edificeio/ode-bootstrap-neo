@@ -1,3 +1,10 @@
+# À propos d'ode-bootstrap-neo
+    
+* Licence : [AGPL v3](http://www.gnu.org/licenses/agpl.txt) - Copyright Edifice
+* Financeur(s) : Edifice
+* Développeur(s) : Edifice
+* Description : personnalisation d'ode-bootstrap pour les thèmes NEO et Open ENT NG.
+
 # ODE Bootsrap NEO
 
 ODE Bootstrap NEO is a theme based on ODE bootstrap framework.
